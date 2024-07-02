@@ -7,18 +7,22 @@ const TabServices = () => {
         {
             title: "Review Analytics",
             desc: "Track how reviews change over time with our comprehensive analytics. Understand trends and patterns in customer feedback to make informed decisions.",
+            imgSrc: "/images/portfolio1.png",
             open: false,
         }, {
             title: "Product Rating",
             desc: "Get accurate product ratings based on in-depth analysis of customer reviews. Our model evaluates multiple factors to provide reliable ratings.",
+            imgSrc: "/images/portfolio2.png",
             open: false,
         }, {
             title: "Model Explanation",
             desc: "Learn how our AI model works to analyze sentiment and generate ratings. We provide transparent explanations to help you understand the results.",
+            imgSrc: "/images/portfolio3.png",
             open: false,
         }, {
             title: "Product Recommendations",
             desc: "Receive actionable recommendations to improve your products based on customer feedback. Enhance your offerings and boost customer satisfaction.",
+            imgSrc: "/images/portfolio4.png",
             open: false,
         },
     ]);
@@ -37,7 +41,7 @@ const TabServices = () => {
     };
 
     return (
-        <div>
+        <div className="w-full">
             {servicesData.map((item, index) => (
                 <div key={index}>
                     <div className="flex items-center justify-between gap-4 cursor-pointer border-b p-4 border-white" onClick={() => toggleOpen(index)}>
@@ -46,6 +50,7 @@ const TabServices = () => {
                     </div>
                     <div className={`${item.open ? "max-h-screen opacity-100 transition-all duration-500 ease-in font-[400] text-[#ffffff91] p-2 text-md" : "max-h-0 opacity-0 transition-all duration-500 ease-out overflow-hidden text-md"}`}>
                         <p>{item.desc}</p>
+                        {item.open && <img src={item.imgSrc} alt={item.title} className="mt-4 w-full h-auto max-w-md mx-auto" />}
                     </div>
                 </div>
             ))}
@@ -54,3 +59,4 @@ const TabServices = () => {
 };
 
 export default TabServices;
+

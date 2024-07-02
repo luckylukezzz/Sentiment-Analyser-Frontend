@@ -16,19 +16,7 @@ const Portfolio = () => {
             img: "/images/portfolio3.png",
             title: "Daily App",
             desc: "Increasing your productivity"
-        }, {
-            img: "/images/portfolio4.png",
-            title: "Daily App",
-            desc: "Increasing your productivity"
-        }, {
-            img: "/images/portfolio5.png",
-            title: "Daily App",
-            desc: "Increasing your productivity"
-        }, {
-            img: "/images/portfolio6.png",
-            title: "Daily App",
-            desc: "Increasing your productivity"
-        },
+        }
     ]
     return (
         <div className='py-28 px-4'>

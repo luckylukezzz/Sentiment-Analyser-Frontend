@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Navbar, Sidebar,Footer ,ThemeSettings } from './components';
 import Landing from './pages/Landing';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
@@ -106,7 +106,6 @@ const App = () => {
               <Route path="/dashboard/stacked" element={<Stacked />} />
             </Routes>
           </div>
-          
         </div>
       </div>
        

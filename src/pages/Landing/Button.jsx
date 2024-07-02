@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Button = (props) => {
     return (
-        <Link to="/contact" className={props.className}>{props.title}</Link>
+        <Link to="/login" className={props.className}>{props.title}</Link>
     )
 }
 

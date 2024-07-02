@@ -53,8 +53,11 @@ const Menu = () => {
                     }
 
                     <Button
+                    className="uppercase font-source-sans bg-[#00796B] text-white px-12 py-3 rounded-xl text-2xl"
+                    title="login/signup" />
+                    {/* <Button
                         className="uppercase font-source-sans bg-[#1F1F39] text-white px-9 py-2 rounded-xl text-lg"
-                        title="Get In Touch" />
+                        title="Get In Touch" /> */}
                 </ul>
             </nav>
             <div className='md:hidden flex fixed top-12 right-6 cursor-pointer z-50'>
