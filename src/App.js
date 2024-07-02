@@ -109,7 +109,7 @@ const App = () => {
           
         </div>
       </div>
-          <Footer/>
+       
     </div>
   );
 };
