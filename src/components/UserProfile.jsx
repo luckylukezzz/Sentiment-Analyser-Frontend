@@ -5,7 +5,7 @@ import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
-
+import { Link } from 'react-router-dom';
 
 
 const UserProfile = () => {
@@ -59,14 +59,16 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
+        <Link to="/logout">
         <Button
           color="white"
           bgColor={currentColor}
-          text="Logouta"
+          text="Logout"
           borderRadius="10px"
           width="full"
-          onClick={handleLogoutClick}
+          
         />
+        </Link>
       </div>
     </div>
 
