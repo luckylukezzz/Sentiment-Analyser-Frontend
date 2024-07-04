@@ -33,6 +33,8 @@ const Login = () => {
           formData
         );
         localStorage.setItem('auth', JSON.stringify(response.data.token));
+        localStorage.setItem('name', JSON.stringify(response.data.name));
+        localStorage.setItem('email', JSON.stringify(response.data.email));
         toast.success("Login successfull");
         navigate("/dashboard");
       } catch (err) {

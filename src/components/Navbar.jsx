@@ -5,8 +5,7 @@ import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-
-import avatar from '../data/avatar.jpg';
+import Avatar from 'react-avatar';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
@@ -49,7 +48,7 @@ const Navbar = () => {
   }, [screenSize]);
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
-
+  const firstName = JSON.parse(localStorage.getItem("name")).split(' ')[0]
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
 
@@ -63,15 +62,17 @@ const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick('userProfile')}
           >
-            <img
-              className="rounded-full w-8 h-8"
-              src={avatar}
-              alt="user-profile"
+            <Avatar
+              name={firstName.charAt(0).toUpperCase()}
+              size="32" 
+              round={true}
+              className="rounded-full"
+              textSizeRatio={2}
             />
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{' '}
               <span className="text-gray-400 font-bold ml-1 text-14">
-                Michael
+              {firstName}
               </span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
