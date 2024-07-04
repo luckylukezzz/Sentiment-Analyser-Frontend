@@ -17,7 +17,7 @@
   .login-left img{
     flex-grow: 1;
     width: 40vw;
-    
+    height: fit-content;
   }
   
   .login-right{

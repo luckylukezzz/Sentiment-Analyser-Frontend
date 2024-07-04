@@ -17,6 +17,7 @@
   .register-left img{
     flex-grow: 1;
     width: 40vw;
+    height:max-content;
     
   }
   
