@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useStateContext } from '../../contexts/ContextProvider';
 
 const Button = (props) => {
+    const { currentColor } = useStateContext();
     return (
-        <Link to="/login" className={props.className}>{props.title}</Link>
+        <Link to="/login" className={props.className} style={{ backgroundColor: currentColor }}>{props.title}</Link>
     )
 }
 

@@ -53,8 +53,8 @@ const Menu = () => {
                     }
 
                     <Button
-                    className="uppercase font-source-sans bg-[#00796B] text-white px-12 py-3 rounded-xl text-2xl"
-                    title="login/signup" />
+                    className=" text-white px-12 py-3 rounded-xl text-2xl"
+                    title="Login/Signup" />
                     {/* <Button
                         className="uppercase font-source-sans bg-[#1F1F39] text-white px-9 py-2 rounded-xl text-lg"
                         title="Get In Touch" /> */}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
 import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -10,11 +9,6 @@ import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
   const { currentColor } = useStateContext();
-  const navigate = useNavigate();
-
-  const handleLogoutClick = () => {
-    navigate('/logout');
-  };
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">

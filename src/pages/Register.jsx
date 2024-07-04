@@ -9,6 +9,7 @@ import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useStateContext } from '../contexts/ContextProvider';
 
 
 
@@ -16,7 +17,7 @@ const Login = () => {
   const [ showPassword, setShowPassword ] = useState(false);
   const navigate = useNavigate();
   const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
-
+  const { currentColor } = useStateContext();
 
 
   const handleRegisterSubmit = async (e) => {
@@ -91,7 +92,7 @@ const Login = () => {
                 
               </div>
               <div className="register-center-buttons">
-                <button type="submit">Sign Up</button>
+                <button type="submit" style={{ backgroundColor: currentColor }}>Sign Up</button>
                 <button type="submit">
                   <img src={GoogleSvg} alt="" />
                   Sign Up with Google

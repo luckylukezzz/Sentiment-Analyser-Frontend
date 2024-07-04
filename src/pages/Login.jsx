@@ -8,12 +8,13 @@ import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const navigate = useNavigate();
-
+  const { currentColor } = useStateContext();
 
 
   const handleLoginSubmit = async (e) => {
@@ -98,7 +99,7 @@ const Login = () => {
                 </a>
               </div>
               <div className="login-center-buttons">
-                <button type="submit">Log In</button>
+                <button type="submit" style={{ backgroundColor: currentColor }}>Log In</button>
                 <button type="submit">
                   <img src={GoogleSvg} alt="" />
                   Log In with Google

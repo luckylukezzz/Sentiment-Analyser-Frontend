@@ -147,7 +147,7 @@
   .register-center-buttons button:nth-child(1){
     background-color: black;
     color: white;
-    border: 3px solid black;
+    border: 3px solid white;
     transition: background 1s linear 0ms;
     transition: color 500ms linear 0ms;
   }
