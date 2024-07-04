@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Logout from './pages/Logout';
 import Login from './pages/Login';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 
@@ -80,30 +81,30 @@ const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/" element={<Landing />} />
-                 
               {/* dashboard */}
-              <Route path="/dashboard/" element={<Ecommerce />} />
-              <Route path="/dashboard/ecommerce" element={<Ecommerce />} />
-              {/* pages */}
-              <Route path="/dashboard/orders" element={<Orders />} />
-              <Route path="/dashboard/employees" element={<Employees />} />
-              <Route path="/dashboard/customers" element={<Customers />} />
+              <Route path="/dashboard/" element={<PrivateRoute element={Ecommerce} />} />
+              <Route path="/dashboard/ecommerce" element={<PrivateRoute element={Ecommerce} />} />
+                 
+               {/* pages */}
+              <Route path="/dashboard/orders" element={<PrivateRoute element={Orders} />} />
+              <Route path="/dashboard/employees" element={<PrivateRoute element={Employees} />} />
+              <Route path="/dashboard/customers" element={<PrivateRoute element={Customers} />} />
 
               {/* apps */}
-              <Route path="/dashboard/kanban" element={<Kanban />} />
-              <Route path="/dashboard/editor" element={<Editor />} />
-              <Route path="/dashboard/calendar" element={<Calendar />} />
-              <Route path="/dashboard/color-picker" element={<ColorPicker />} />
+              <Route path="/dashboard/kanban" element={<PrivateRoute element={Kanban} />} />
+              <Route path="/dashboard/editor" element={<PrivateRoute element={Editor} />} />
+              <Route path="/dashboard/calendar" element={<PrivateRoute element={Calendar} />} />
+              <Route path="/dashboard/color-picker" element={<PrivateRoute element={ColorPicker} />} />
 
               {/* charts */}
-              <Route path="/dashboard/line" element={<Line />} />
-              <Route path="/dashboard/area" element={<Area />} />
-              <Route path="/dashboard/bar" element={<Bar />} />
-              <Route path="/dashboard/pie" element={<Pie />} />
-              <Route path="/dashboard/financial" element={<Financial />} />
-              <Route path="/dashboard/color-mapping" element={<ColorMapping />} />
-              <Route path="/dashboard/pyramid" element={<Pyramid />} />
-              <Route path="/dashboard/stacked" element={<Stacked />} />
+              <Route path="/dashboard/line" element={<PrivateRoute element={Line} />} />
+              <Route path="/dashboard/area" element={<PrivateRoute element={Area} />} />
+              <Route path="/dashboard/bar" element={<PrivateRoute element={Bar} />} />
+              <Route path="/dashboard/pie" element={<PrivateRoute element={Pie} />} />
+              <Route path="/dashboard/financial" element={<PrivateRoute element={Financial} />} />
+              <Route path="/dashboard/color-mapping" element={<PrivateRoute element={ColorMapping} />} />
+              <Route path="/dashboard/pyramid" element={<PrivateRoute element={Pyramid} />} />
+              <Route path="/dashboard/stacked" element={<PrivateRoute element={Stacked} />} />
             </Routes>
           </div>
         </div>
