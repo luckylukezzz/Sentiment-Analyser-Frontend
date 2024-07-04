@@ -10,8 +10,8 @@ const Menu = () => {
 
     const menuContent = [
         {
-            text: "Home",
-            url: "/",
+            text: "Dashboard",
+            url: "/dashboard",
         }, {
             text: "About",
             url: "/",
@@ -47,7 +47,8 @@ const Menu = () => {
                     {
                         menuContent.map((item, index) => {
                             return (
-                                <NavLink to={item.url} key={index}><li>{item.text}</li></NavLink>
+                                <NavLink to={item.url} key={index}><li style={{ fontWeight: 'bold' }}>{item.text}</li>
+                                </NavLink>
                             )
                         })
                     }
