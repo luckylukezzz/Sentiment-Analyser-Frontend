@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 import {
-  Ecommerce,
+  AllAnalytics,
   Orders,
   Calendar,
   Employees,
@@ -106,11 +106,11 @@ const App = () => {
               {/* dashboard */}
               <Route
                 path="/dashboard/"
-                element={<PrivateRoute element={Ecommerce} />}
+                element={<PrivateRoute element={AllAnalytics} />}
               />
               <Route
-                path="/dashboard/ecommerce"
-                element={<PrivateRoute element={Ecommerce} />}
+                path="/dashboard/All-Analytics"
+                element={<PrivateRoute element={AllAnalytics} />}
               />
 
               {/* pages */}
