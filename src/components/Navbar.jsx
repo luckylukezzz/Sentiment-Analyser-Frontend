@@ -48,7 +48,10 @@ const Navbar = () => {
   }, [screenSize]);
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
-  const firstName = JSON.parse(localStorage.getItem("name")).split(' ')[0]
+
+  const storedName = JSON.parse(localStorage.getItem("name")) || "Temp";
+  const firstName = storedName.split(' ')[0];
+
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
 
@@ -64,11 +67,13 @@ const Navbar = () => {
           >
             <Avatar
               name={firstName.charAt(0).toUpperCase()}
+              
               size="32" 
               round={true}
               className="rounded-full"
               textSizeRatio={2}
             />
+           
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{' '}
               <span className="text-gray-400 font-bold ml-1 text-14">

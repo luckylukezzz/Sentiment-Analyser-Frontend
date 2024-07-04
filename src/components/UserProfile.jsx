@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
   const { currentColor } = useStateContext();
-  const firstName = JSON.parse(localStorage.getItem("name")).split(' ')[0]
+  const storedName = JSON.parse(localStorage.getItem("name")) || "Temp";
+  const firstName = storedName.split(' ')[0];
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
@@ -24,9 +25,9 @@ const UserProfile = () => {
         />
       </div>
       <div className="flex gap-5 items-center mt-6 border-color border-b-1 pb-6">
-        {/* <img
+      {/* <img
           className="rounded-full h-24 w-24"
-          src={avatar}
+          src="../data/avatar.jpg"
           alt="user-profile"
         /> */}
         <Avatar
@@ -34,13 +35,12 @@ const UserProfile = () => {
         size={50}
         round={true}
         className="rounded-full"
-         // Custom inline styles for size
         textSizeRatio={2}
       />
         <div>
-          <p className="font-semibold text-xl dark:text-gray-200"> {JSON.parse(localStorage.getItem("name"))} </p>
+          <p className="font-semibold text-xl dark:text-gray-200"> {JSON.parse(localStorage.getItem("name")) || "temp"} </p>
           <p className="text-gray-500 text-sm dark:text-gray-400">  Administrator   </p>
-          <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> {JSON.parse(localStorage.getItem("email"))} </p>
+          <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> {JSON.parse(localStorage.getItem("email")) || "temp@temp.com"} </p>
         </div>
       </div>
       <div>
