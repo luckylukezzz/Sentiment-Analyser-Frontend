@@ -18,6 +18,8 @@ const Login = () => {
   const navigate = useNavigate();
   const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const { currentColor } = useStateContext();
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
+  
 
 
   const handleRegisterSubmit = async (e) => {
@@ -37,7 +39,7 @@ const Login = () => {
           password
         };
         try{
-        const response = await axios.post("http://localhost:3000/api/v1/register", formData);
+        const response = await axios.post(`${backendApiUrl}/register`, formData);
          toast.success("Registration successfull");
          navigate("/login");
        }catch(err){

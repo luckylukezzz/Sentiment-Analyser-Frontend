@@ -15,6 +15,8 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
+  
+  
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
   const location = useLocation();
 

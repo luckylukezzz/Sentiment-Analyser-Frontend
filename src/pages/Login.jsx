@@ -15,7 +15,8 @@ const Login = () => {
   const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const navigate = useNavigate();
   const { currentColor } = useStateContext();
-
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
+ console.log(backendApiUrl)
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const Login = () => {
       };
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/v1/login",
+          `${backendApiUrl}/login`,
           formData
         );
         localStorage.setItem('auth', JSON.stringify(response.data.token));
