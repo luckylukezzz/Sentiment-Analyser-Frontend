@@ -48,16 +48,21 @@ function Search() {
         {products.map((item) => (
           <div
             key={item.id}
-            className="bg-light-gray h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl"
+            className="bg-light-gray h-64 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl"
           >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-32 object-cover rounded-md"
+            />
             <p className="mt-3">
               <span className="text-lg font-semibold">{item.title.slice(0, 50)}</span>
             </p>
-            <p className="text-sm text-gray-400 mt-1">
+            {/* <p className="text-sm text-gray-400 mt-1">
               {item.description.length > 50
                 ? `${item.description.slice(0, 50)}...`
                 : item.description}
-            </p>
+            </p> */}
           </div>
         ))}
       </div>
