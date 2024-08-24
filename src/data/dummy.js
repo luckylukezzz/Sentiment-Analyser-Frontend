@@ -43,7 +43,42 @@ export const gridOrderStatus = (props) => (
     {props.Status}
   </button>
 );
+export const positiveTerms = [
+  'Excellent',
+  'Outstanding product amazing Outstanding product amazing',
+  'Fantastic',
+  'Wonderful',
+  'Great',
+  'Amazing',
+  'Superb',
+  'Impressive',
+  'Marvelous',
+  'Exceptional',
+  'Excellent',
+  'Outstanding',
+  'Fantastic',
+  'Wonderful',
+  'Great',
+  'Amazing',
+  'Superb',
+  'Impressive',
+  'Marvelous',
+  'Exceptional',
 
+];
+
+export const negativeTerms = [
+  'Terrible',
+  'Awful',
+  'Horrible',
+  'Poor',
+  'Bad',
+  'Dreadful',
+  'Unpleasant',
+  'Disappointing',
+  'Mediocre',
+  'Subpar',
+];
 export const kanbanGrid = [
   { headerText: 'To Do',
     keyField: 'Open',
@@ -3047,34 +3082,35 @@ export const scheduleData = [
 
 export const lineChartData = [
   [
-    { x: new Date(2005, 0, 1), y: 21 },
-    { x: new Date(2006, 0, 1), y: 24 },
+    { x: new Date(2005, 0, 1), y: 70 },
+    { x: new Date(2006, 0, 1), y: 70 },
     { x: new Date(2007, 0, 1), y: 36 },
     { x: new Date(2008, 0, 1), y: 38 },
-    { x: new Date(2009, 0, 1), y: 54 },
-    { x: new Date(2010, 0, 1), y: 57 },
-    { x: new Date(2011, 0, 1), y: 70 },
+    { x: new Date(2009, 0, 1), y: 30 },
+    { x: new Date(2010, 0, 1), y: 27 },
+    { x: new Date(2011, 0, 1), y: 29 },
   ],
   [
-    { x: new Date(2005, 0, 1), y: 28 },
-    { x: new Date(2006, 0, 1), y: 44 },
+    { x: new Date(2005, 0, 1), y: 20 },
+    { x: new Date(2006, 0, 1), y: 20 },
     { x: new Date(2007, 0, 1), y: 48 },
     { x: new Date(2008, 0, 1), y: 50 },
-    { x: new Date(2009, 0, 1), y: 66 },
-    { x: new Date(2010, 0, 1), y: 78 },
-    { x: new Date(2011, 0, 1), y: 84 },
+    { x: new Date(2009, 0, 1), y: 36 },
+    { x: new Date(2010, 0, 1), y: 37 },
+    { x: new Date(2011, 0, 1), y: 42 },
   ],
 
   [
     { x: new Date(2005, 0, 1), y: 10 },
-    { x: new Date(2006, 0, 1), y: 20 },
-    { x: new Date(2007, 0, 1), y: 30 },
-    { x: new Date(2008, 0, 1), y: 39 },
-    { x: new Date(2009, 0, 1), y: 50 },
-    { x: new Date(2010, 0, 1), y: 70 },
-    { x: new Date(2011, 0, 1), y: 100 },
+    { x: new Date(2006, 0, 1), y: 10 },
+    { x: new Date(2007, 0, 1), y: 16 },
+    { x: new Date(2008, 0, 1), y: 12 },
+    { x: new Date(2009, 0, 1), y: 34 },
+    { x: new Date(2010, 0, 1), y: 36 },
+    { x: new Date(2011, 0, 1), y: 29 },
   ],
 ];
+
 export const dropdownData = [
   {
     Id: '1',
@@ -3098,41 +3134,46 @@ export const SparklineAreaData = [
 ];
 
 export const lineCustomSeries = [
-  { dataSource: lineChartData[0],
+  {
+    dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Germany',
+    name: 'Positive',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
-  { dataSource: lineChartData[1],
+    type: 'Line',
+    color: '#66BB6A'  // Soft Green for Positive
+  },
+  {
+    dataSource: lineChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'England',
+    name: 'Negative',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
-  { dataSource: lineChartData[2],
+    type: 'Line',
+    color: '#EF5350'  // Soft Red for Negative
+  },
+  {
+    dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
-    name: 'India',
+    name: 'Neutral',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
+    type: 'Line',
+    color: '#42A5F5'  // Soft Blue for Neutral
+  },
 ];
+
 
 export const pieChartData = [
-  { x: 'Labour', y: 18, text: '18%' },
-  { x: 'Legal', y: 8, text: '8%' },
-  { x: 'Production', y: 15, text: '15%' },
-  { x: 'License', y: 11, text: '11%' },
-  { x: 'Facilities', y: 18, text: '18%' },
-  { x: 'Taxes', y: 14, text: '14%' },
-  { x: 'Insurance', y: 16, text: '16%' },
+  { x: 'Positive', y: 70, text: '70%', color: '#66BB6A' },  // Soft Green
+  { x: 'Negative', y:20, text: '20%', color: '#FF8A80' },   // Soft Red
+  { x: 'Neutral', y: 10, text: '10%', color: '#BDBDBD' },   // Soft Grey
 ];
+
+
 
 export const contextMenuItems = [
   'AutoFit',

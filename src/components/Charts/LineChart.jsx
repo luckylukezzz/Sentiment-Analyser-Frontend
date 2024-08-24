@@ -1,5 +1,14 @@
 import React from 'react';
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, LineSeries, DateTime, Legend, Tooltip } from '@syncfusion/ej2-react-charts';
+import {
+  ChartComponent,
+  SeriesCollectionDirective,
+  SeriesDirective,
+  Inject,
+  LineSeries,
+  DateTime,
+  Legend,
+  Tooltip,
+} from '@syncfusion/ej2-react-charts';
 
 import { lineCustomSeries, LinePrimaryXAxis, LinePrimaryYAxis } from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
@@ -16,12 +25,26 @@ const LineChart = () => {
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
       background={currentMode === 'Dark' ? '#33373E' : '#fff'}
-      legendSettings={{ background: 'white' }}
+      legendSettings={{ 
+        background: currentMode === 'Dark' ? '#33373E' : '#fff', 
+        textStyle: { color: currentMode === 'Dark' ? '#fff' : '#000' } 
+      }}
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        {lineCustomSeries.map((item, index) => <SeriesDirective key={index} {...item} />)}
+        {lineCustomSeries.map((item, index) => (
+          <SeriesDirective
+            key={index}
+            dataSource={item.dataSource}
+            xName={item.xName}
+            yName={item.yName}
+            name={item.name}
+            width={item.width}
+            marker={item.marker}
+            type={item.type}
+            fill={item.color}  // Explicitly set the color here
+          />
+        ))}
       </SeriesCollectionDirective>
     </ChartComponent>
   );
