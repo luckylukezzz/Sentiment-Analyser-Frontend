@@ -3159,11 +3159,25 @@ export const lineCustomSeries = [
 
 
 export const pieChartData = [
-  { x: 'Positive', y: 70, text: '70%', color: '#66BB6A' },  // Soft Green
+  { x: 'Positive', y: 70, text: '70%', color: '#00bdae' },  // Soft Green
   { x: 'Negative', y:20, text: '20%', color: '#FF8A80' },   // Soft Red
-  { x: 'Neutral', y: 10, text: '10%', color: '#BDBDBD' },   // Soft Grey
+  { x: 'Neutral', y: 10, text: '10%', color: '#357cd2' },   // Soft Grey
 ];
 
+export const improvementTips = [
+  "Increase battery life to extend usage time and reduce customer complaints about frequent charging.",
+  "Improve the durability of materials used to enhance product longevity and reduce wear and tear.",
+  "Expand color options to appeal to a broader demographic and match customer preferences.",
+  "Optimize the user interface for better accessibility, ensuring that all users can easily navigate the product.",
+  "Enhance packaging to provide better protection during shipping and improve the unboxing experience.",
+  "Reduce the weight of the product to make it more portable and convenient for users on the go.",
+  "Offer customizable features to allow customers to personalize the product according to their needs.",
+  "Increase the clarity of the instruction manual to reduce user confusion and improve setup time.",
+  "Upgrade the camera quality to provide sharper and more vibrant images, meeting customer expectations.",
+  "Add more connectivity options, such as Bluetooth and Wi-Fi, to increase the product's versatility.",
+  "Introduce a loyalty program or discount for repeat purchases to encourage customer retention.",
+  "Reduce the product's environmental impact by using eco-friendly materials and sustainable practices.",
+];
 
 
 export const contextMenuItems = [

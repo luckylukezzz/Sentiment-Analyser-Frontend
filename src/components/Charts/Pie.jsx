@@ -18,7 +18,11 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisiblity, background: 'white' }}
+      legendSettings={{
+        visible: legendVisiblity,
+        background: currentMode === "Dark" ? "#33373E" : "#fff",
+        textStyle: { color: currentMode === "Dark" ? "#fff" : "#000" },
+      }}
       height={height}
       background={currentMode === 'Dark' ? '#33373E' : '#fff'}
       tooltip={{ enable: true }}
