@@ -4,7 +4,8 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { positiveTerms, negativeTerms } from "../data/dummy";
-import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
+import { Stacked, Button, LineChart, SparkLine } from "../components";
+import Pie from "./Charts/Pie";
 import {
   earningData,
   medicalproBranding,
@@ -40,8 +41,10 @@ const AllAnalytics = () => {
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 ">
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="font-bold text-gray-400">product</p>
+              <p className="text-2xl">Apple Iphone 12</p>
+              <p className="font-bold text-gray-400">asin</p>
+              <p className="text-2xl">B812AD45C</p>
             </div>
           </div>
         </div>
@@ -49,7 +52,7 @@ const AllAnalytics = () => {
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-light-gray h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
+              className="bg-light-gray h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-72  p-4 pt-9 rounded-2xl "
             >
               <button
                 type="button"
@@ -70,21 +73,15 @@ const AllAnalytics = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center">
+      {/* <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex items-center gap-4">
               <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-                {/* <span>
-                  <GoPrimitiveDot />
-                </span> */}
                 <span>Expense</span>
               </p>
               <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
-                {/* <span>
-                  <GoPrimitiveDot />
-                </span> */}
                 <span>Budget</span>
               </p>
             </div>
@@ -161,28 +158,16 @@ const AllAnalytics = () => {
           </div>
 
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
-            <div>
-              <p className="text-2xl font-semibold ">$43,246</p>
-              <p className="text-gray-400">Yearly sales</p>
-            </div>
-
-            <div className="w-40">
-              <Pie
-                id="pie-chart"
-                data={ecomPieChartData}
-                legendVisiblity={false}
-                height="160px"
-              />
-            </div>
+            <Pie />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
-            <p className="text-xl font-semibold">Recent Transactions</p>
-            <DropDown currentMode={currentMode} />
+            <p className="text-xl font-semibold">Product Aspects</p>
+            {/* <DropDown currentMode={currentMode} /> */}
           </div>
           <div className="mt-10 w-72 md:w-400">
             {recentTransactions.map((item) => (
@@ -212,18 +197,18 @@ const AllAnalytics = () => {
               <Button
                 color="white"
                 bgColor={currentColor}
-                text="Add"
+                text="How these generated?"
                 borderRadius="10px"
               />
             </div>
 
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+            
           </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
-            <p className="text-xl font-semibold">Sales Overview</p>
-            <DropDown currentMode={currentMode} />
+            <p className="text-xl font-semibold">Sentiment over Time</p>
+            {/* <DropDown currentMode={currentMode} /> */}
           </div>
           <div className="md:w-full overflow-auto">
             <LineChart />
