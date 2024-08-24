@@ -655,7 +655,7 @@ export const chatData = [
   },
 ];
 
-export const earningData = [
+export const topBlocks = [
   {
     icon: <BiSolidCategory />,
     amount: 'Electronics and Accessories',
@@ -676,7 +676,7 @@ export const earningData = [
   
   {
     icon: <TbCalendarTime />,
-    amount: '4,396',
+    amount: '2021 Apr - 2024 Jun',
     title: 'Time Peroid',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',

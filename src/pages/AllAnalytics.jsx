@@ -7,7 +7,7 @@ import { positiveTerms, negativeTerms } from "../data/dummy";
 import { Stacked, Button, LineChart, SparkLine } from "../components";
 import Pie from "./Charts/Pie";
 import {
-  earningData,
+  topBlocks,
   medicalproBranding,
   recentTransactions,
   weeklyStats,
@@ -49,7 +49,7 @@ const AllAnalytics = () => {
           </div>
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
-          {earningData.map((item) => (
+          {topBlocks.map((item) => (
             <div
               key={item.title}
               className="bg-light-gray h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-72  p-4 pt-9 rounded-2xl "
