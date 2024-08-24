@@ -7,6 +7,9 @@ module.exports = {
       body: ['Open Sans', 'sans-serif'],
     },
     extend: {
+      colors: {
+        'light-gray': '#f9f9f9',
+      },
       fontSize: {
         14: '14px',
       },

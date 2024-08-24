@@ -24,6 +24,7 @@ import {
   ColorPicker,
   ColorMapping,
   Editor,
+  Search,
 } from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
@@ -107,6 +108,10 @@ const App = () => {
               <Route
                 path="/dashboard/"
                 element={<PrivateRoute element={AllAnalytics} />}
+              />
+              <Route
+                path="/dashboard/search"
+                element={<PrivateRoute element={Search} />}
               />
               <Route
                 path="/dashboard/All-Analytics"
