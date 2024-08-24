@@ -5,7 +5,11 @@ import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { positiveTerms, negativeTerms } from "../data/dummy";
 import { Stacked, Button, LineChart, SparkLine } from "../components";
-import { pieChartData, improvementTips } from "../data/dummy";
+import {
+  pieChartData,
+  improvementTips,
+  pieChartDataEmotion,
+} from "../data/dummy";
 import { Pie as PieChart, ChartsHeader } from "../components";
 import {
   topBlocks,
@@ -116,14 +120,11 @@ const AllAnalytics = () => {
           {/* Chart Header */}
           <div className="w-full text-center">
             <h2 className="text-xl font-semibold">Sentiment Distribution</h2>
-            <p className="text-sm text-gray-400">
-              Analysis of positive, neutral, and negative sentiments
-            </p>
           </div>
 
           <div className="w-full h-full">
             <PieChart
-              id="chart-pie"
+              id="chart-pie-sentiments"
               data={pieChartData}
               legendVisiblity
               height="full"
@@ -227,7 +228,7 @@ const AllAnalytics = () => {
         </div> */}
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap gap-4 justify-center">
         {/* ------------------------------------------------------ */}
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
@@ -286,36 +287,23 @@ const AllAnalytics = () => {
         </div>
 
         {/* ------------------------------------------------------------ */}
-        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-          <div className="flex justify-between">
-            <p className="text-xl font-semibold">Daily Activities</p>
-            <button
-              type="button"
-              className="text-xl font-semibold text-gray-500"
-            >
-              <IoIosMore />
-            </button>
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-96 p-6 m-3 flex flex-col justify-center items-center gap-1 h-auto">
+          {/* Chart Header */}
+          <div className="w-full text-center">
+            <h2 className="text-xl font-semibold">Emotions Distribution</h2>
           </div>
-          <div className="mt-10">
-            <img className="md:w-96 h-50 " src={product9} alt="" />
-            <div className="mt-8">
-              <p className="font-semibold text-lg">React 18 coming soon!</p>
-              <p className="text-gray-400 ">By Johnathan Doe</p>
-              <p className="mt-8 text-sm text-gray-400">
-                This will be the small description for the news you have shown
-                here. There could be some great info.
-              </p>
-              <div className="mt-3">
-                <Button
-                  color="white"
-                  bgColor={currentColor}
-                  text="Read More"
-                  borderRadius="10px"
-                />
-              </div>
-            </div>
+
+          <div className="w-full h-full">
+            <PieChart
+              id="chart-pie-emotions"
+              data={pieChartDataEmotion}
+              legendVisiblity
+              height="full"
+            />
           </div>
         </div>
+
+        {/* ------------------------- */}
       </div>
     </div>
   );

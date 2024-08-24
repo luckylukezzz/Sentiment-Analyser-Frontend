@@ -3164,6 +3164,14 @@ export const pieChartData = [
   { x: 'Neutral', y: 10, text: '10%', color: '#357cd2' },   // Soft Grey
 ];
 
+export const pieChartDataEmotion = [
+  { x: 'Love It', y: 40, text: '40%', color: '#ff6f61' },   // Warm Coral
+  { x: 'Happy', y: 25, text: '25%', color: '#ffd54f' },     // Bright Yellow
+  { x: 'Neutral', y: 20, text: '20%', color: '#80cbc4' },   // Soft Teal
+  { x: 'Angry', y: 10, text: '10%', color: '#ff8a80' },     // Soft Red
+  { x: 'Frustrated', y: 5, text: '5%', color: '#ba68c8' },  // Soft Purple
+];
+
 export const improvementTips = [
   "Increase battery life to extend usage time and reduce customer complaints about frequent charging.",
   "Improve the durability of materials used to enhance product longevity and reduce wear and tear.",
