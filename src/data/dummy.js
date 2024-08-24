@@ -1,10 +1,12 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { LiaCertificateSolid } from "react-icons/lia";
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import { TbCalendarTime } from "react-icons/tb";
+import { FcCustomerSupport } from "react-icons/fc";
+import { TbCalendarTime,TbTruckDelivery } from "react-icons/tb";
 import { IoIosSearch } from "react-icons/io";
-import { BiColorFill,BiSolidCategory } from 'react-icons/bi';
+import { BiColorFill,BiSolidCategory,BiSolidCrown } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount,MdOutlineRateReview} from 'react-icons/md';
@@ -687,49 +689,47 @@ export const topBlocks = [
 
 export const recentTransactions = [
   {
-    icon: <BsCurrencyDollar />,
-    amount: '+$350',
-    title: 'Paypal Transfer',
-    desc: 'Money Added',
+    icon: <BiSolidCrown />,
+    score: '0.99',
+    title: 'Quality',
+    sentiment: 'Positive',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'green-600',
   },
   {
-    icon: <BsShield />,
-    amount: '-$560',
-    desc: 'Bill Payment',
-    title: 'Wallet',
+    icon: <BsCurrencyDollar />,
+    score: '0.61',
+    sentiment: 'Negative',
+    title: 'Price',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
   },
   {
-    icon: <FiCreditCard />,
-    amount: '+$350',
-    title: 'Credit Card',
-    desc: 'Money reversed',
+    icon: <TbTruckDelivery />,
+    score: '0.72',
+    title: 'Shipping',
+    sentiment: 'Positive',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
 
     pcColor: 'green-600',
   },
   {
-    icon: <TiTick />,
-    amount: '+$350',
-    title: 'Bank Transfer',
-    desc: 'Money Added',
-
+    icon: <FcCustomerSupport />,
+    score: '0.62',
+    title: 'Customer Service',
+    sentiment: 'Neutral',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
+    pcColor: 'indigo-600',
   },
   {
-    icon: <BsCurrencyDollar />,
-    amount: '-$50',
-    percentage: '+38%',
-    title: 'Refund',
-    desc: 'Payment Sent',
+    icon: <LiaCertificateSolid />,
+    score: '0.88',
+    title: 'Warranty ',
+    sentiment: 'Negative',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
@@ -739,7 +739,7 @@ export const recentTransactions = [
 export const weeklyStats = [
   {
     icon: <FiShoppingCart />,
-    amount: '-$560',
+    score: '-$560',
     title: 'Top Sales',
     desc: 'Johnathan Doe',
     iconBg: '#FB9678',
@@ -747,7 +747,7 @@ export const weeklyStats = [
   },
   {
     icon: <FiStar />,
-    amount: '-$560',
+    score: '-$560',
     title: 'Best Seller',
     desc: 'MaterialPro Admin',
     iconBg: 'rgb(254, 201, 15)',
@@ -755,7 +755,7 @@ export const weeklyStats = [
   },
   {
     icon: <BsChatLeft />,
-    amount: '+$560',
+    score: '+$560',
     title: 'Most Commented',
     desc: 'Ample Admin',
     iconBg: '#00C292',

@@ -185,10 +185,30 @@ const AllAnalytics = () => {
                   </button>
                   <div>
                     <p className="text-md font-semibold">{item.title}</p>
-                    <p className="text-sm text-gray-400">{item.desc}</p>
+                    <p
+                      className={`text-sm ${
+                        item.sentiment === "Positive"
+                          ? "text-green-600"
+                          : item.sentiment === "Negative"
+                          ? "text-red-600"
+                          : "text-cyan-600"
+                      }`}
+                    >
+                      {item.sentiment}
+                    </p>
                   </div>
                 </div>
-                <p className={`text-${item.pcColor}`}>{item.amount}</p>
+                <p
+                      className={`text-sm ${
+                        item.sentiment === "Positive"
+                          ? "text-green-600"
+                          : item.sentiment === "Negative"
+                          ? "text-red-600"
+                          : "text-cyan-600"
+                      }`}
+                    >
+                      {item.score}
+                    </p>
               </div>
             ))}
           </div>
@@ -201,8 +221,6 @@ const AllAnalytics = () => {
                 borderRadius="10px"
               />
             </div>
-
-            
           </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
