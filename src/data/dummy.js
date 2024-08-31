@@ -3,6 +3,7 @@ import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutline
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { LiaCertificateSolid } from "react-icons/lia";
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { FaStar } from "react-icons/fa6";
 import { FcCustomerSupport } from "react-icons/fc";
 import { TbCalendarTime,TbTruckDelivery } from "react-icons/tb";
 import { IoIosSearch } from "react-icons/io";
@@ -596,6 +597,11 @@ export const links = [
         icon: <RiStockLine />,
         route: 'improvement',
       },
+      {
+        name: 'Aspects Breakdown',
+        icon: <FaStar />,
+        route: 'aspect',
+      },
       // {
       //   name: 'color-mapping',
       //   icon: <BsBarChart />,
@@ -697,7 +703,7 @@ export const topBlocks = [
 
 ];
 
-export const recentTransactions = [
+export const aspectList = [
   {
     icon: <BiSolidCrown />,
     score: '0.99',
