@@ -27,6 +27,7 @@ import {
   Editor,
   Search,
   Improvement,
+  AspectPage,
 } from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
@@ -168,6 +169,10 @@ const App = () => {
               <Route
                 path="/dashboard/improvement"
                 element={<PrivateRoute element={Improvement} />}
+              />
+              <Route
+                path="/dashboard/aspect"
+                element={<PrivateRoute element={AspectPage} />}
               />
             </Routes>
           </div>

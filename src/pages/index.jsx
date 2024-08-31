@@ -17,3 +17,4 @@ export { default as Pyramid } from './Charts/Pyramid';
 export { default as Stacked } from './Charts/Stacked';
 export { default as Search } from './Search';
 export { default as Improvement } from './Improvement';
+export { default as AspectPage } from './Charts/AspectPage';
