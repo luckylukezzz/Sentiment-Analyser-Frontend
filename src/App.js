@@ -19,7 +19,8 @@ import {
   Line,
   Area,
   Bar,
-  Pie,
+  SentimentPie,
+  EmotionPie,
   Financial,
   ColorPicker,
   ColorMapping,
@@ -164,8 +165,12 @@ const App = () => {
                 element={<PrivateRoute element={Bar} />}
               />
               <Route
-                path="/dashboard/pie"
-                element={<PrivateRoute element={Pie} />}
+                path="/dashboard/sentiment-pie"
+                element={<PrivateRoute element={SentimentPie} />}
+              />
+              <Route
+                path="/dashboard/emotion-pie"
+                element={<PrivateRoute element={EmotionPie} />}
               />
               <Route
                 path="/dashboard/financial"
