@@ -515,10 +515,12 @@ export const links = [
       {
         name: 'search',
         icon: <IoIosSearch />,
+        route: 'search',
       },
       {
         name: 'All-Analytics',
         icon: <FiShoppingBag />,
+        route: 'All-Analytics',
       },
      
     ],
@@ -566,38 +568,46 @@ export const links = [
     title: 'Charts',
     links: [
       {
-        name: 'line',
+        name: 'Sentiment vs Time',
         icon: <AiOutlineStock />,
+        route: "line"
       },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
+      // {
+      //   name: 'area',
+      //   icon: <AiOutlineAreaChart />,
+      // },
 
+      // {
+      //   name: 'bar',
+      //   icon: <AiOutlineBarChart />,
+      // },
       {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
+        name: 'Sentiment Breakdown',
         icon: <FiPieChart />,
+        route: 'sentiment-pie',
       },
       {
-        name: 'financial',
+        name: 'Emotions Breakdown',
+        icon: <FiPieChart />,
+        route: 'emotion-pie',
+      },
+      {
+        name: 'Improvements',
         icon: <RiStockLine />,
+        route: 'improvement',
       },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
+      // {
+      //   name: 'color-mapping',
+      //   icon: <BsBarChart />,
+      // },
+      // {
+      //   name: 'pyramid',
+      //   icon: <GiLouvrePyramid />,
+      // },
+      // {
+      //   name: 'stacked',
+      //   icon: <AiOutlineBarChart />,
+      // },
     ],
   },
 ];

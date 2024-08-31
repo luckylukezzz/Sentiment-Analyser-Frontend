@@ -4,7 +4,7 @@ import { pieChartData } from "../../data/dummy";
 import { ChartsHeader, Pie as PieChart } from "../../components";
 import { useStateContext } from "../../contexts/ContextProvider";
 
-const Pie = () => {
+const SentimentPie = () => {
   const { currentMode } = useStateContext();
   return (
     <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
@@ -22,4 +22,4 @@ const Pie = () => {
   );
 };
 
-export default Pie;
+export default SentimentPie;
