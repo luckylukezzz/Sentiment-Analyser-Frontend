@@ -591,10 +591,11 @@ export const links = [
         icon: <FiPieChart />,
         route: 'emotion-pie',
       },
-      // {
-      //   name: 'financial',
-      //   icon: <RiStockLine />,
-      // },
+      {
+        name: 'Improvements',
+        icon: <RiStockLine />,
+        route: 'improvement',
+      },
       // {
       //   name: 'color-mapping',
       //   icon: <BsBarChart />,

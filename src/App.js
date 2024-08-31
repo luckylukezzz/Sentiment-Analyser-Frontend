@@ -26,6 +26,7 @@ import {
   ColorMapping,
   Editor,
   Search,
+  Improvement,
 } from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
@@ -157,14 +158,6 @@ const App = () => {
                 element={<PrivateRoute element={Line} />}
               />
               <Route
-                path="/dashboard/area"
-                element={<PrivateRoute element={Area} />}
-              />
-              <Route
-                path="/dashboard/bar"
-                element={<PrivateRoute element={Bar} />}
-              />
-              <Route
                 path="/dashboard/sentiment-pie"
                 element={<PrivateRoute element={SentimentPie} />}
               />
@@ -173,20 +166,8 @@ const App = () => {
                 element={<PrivateRoute element={EmotionPie} />}
               />
               <Route
-                path="/dashboard/financial"
-                element={<PrivateRoute element={Financial} />}
-              />
-              <Route
-                path="/dashboard/color-mapping"
-                element={<PrivateRoute element={ColorMapping} />}
-              />
-              <Route
-                path="/dashboard/pyramid"
-                element={<PrivateRoute element={Pyramid} />}
-              />
-              <Route
-                path="/dashboard/stacked"
-                element={<PrivateRoute element={Stacked} />}
+                path="/dashboard/improvement"
+                element={<PrivateRoute element={Improvement} />}
               />
             </Routes>
           </div>
