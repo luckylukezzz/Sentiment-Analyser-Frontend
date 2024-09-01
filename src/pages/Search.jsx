@@ -2,14 +2,17 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
 import { useStateContext } from '../contexts/ContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
   const { setSelectedProduct } = useStateContext();
+  const navigate = useNavigate();
 
   const handleProductSelect = (item) => {
-    setSelectedProduct(item.parent_asin); 
+    setSelectedProduct(item.parent_asin);
+    navigate('/dashboard/');
   };
   // Function to fetch products
   const fetchProducts = useCallback(debounce((term) => {
