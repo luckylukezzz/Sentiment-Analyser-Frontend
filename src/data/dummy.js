@@ -478,17 +478,17 @@ export const lineCustomSeries = [
 
 
 export const pieChartData = [
-  { x: 'Positive', y: 70, text: '70%', color: '#00bdae' },  // Soft Green
-  { x: 'Negative', y:20, text: '20%', color: '#FF8A80' },   // Soft Red
-  { x: 'Neutral', y: 10, text: '10%', color: '#357cd2' },   // Soft Grey
+  { x: 'NaN', y: 70, text: '70%', color: '#FF8A80' },  // Soft Green
+  { x: 'NaN', y:20, text: '20%', color: '#FF8A80' },   // Soft Red
+  { x: 'NaN', y: 10, text: '10%', color: '#FF8A80' },   // Soft Grey
 ];
 
 export const pieChartDataEmotion = [
-  { x: 'Love It', y: 40, text: '40%', color: '#ff6f61' },   // Warm Coral
-  { x: 'Happy', y: 25, text: '25%', color: '#ffd54f' },     // Bright Yellow
-  { x: 'Neutral', y: 20, text: '20%', color: '#80cbc4' },   // Soft Teal
-  { x: 'Angry', y: 10, text: '10%', color: '#ff8a80' },     // Soft Red
-  { x: 'Frustrated', y: 5, text: '5%', color: '#ba68c8' },  // Soft Purple
+  { x: 'NaN', y: 40, text: '40%', color: '#FF8A80' },   // Warm Coral
+  { x: 'NaN', y: 25, text: '25%', color: '#FF8A80' },     // Bright Yellow
+  { x: 'NaN', y: 20, text: '20%', color: '#FF8A80' },   // Soft Teal
+  { x: 'NaN', y: 10, text: '10%', color: '#FF8A80' },     // Soft Red
+  { x: 'NaN', y: 5, text: '5%', color: '#FF8A80' },  // Soft Purple
 ];
 
 export const improvementTips = [

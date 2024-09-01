@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'; // Import useEffect to use the hook
-import { useStateContext } from '../../contexts/ContextProvider'; // Import your custom context hook
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
-import { ChartsHeader, LineChart } from '../../components'; // Import your components
+import React, { useEffect } from 'react'; 
+import { useStateContext } from '../../contexts/ContextProvider'; 
+import { useNavigate } from 'react-router-dom'; 
+import { ChartsHeader, LineChart } from '../../components'; 
 
 const Line = () => {
   const { selectedProduct } = useStateContext(); // Destructure selectedProduct from context
