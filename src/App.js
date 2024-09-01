@@ -9,22 +9,9 @@ import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 import {
   AllAnalytics,
-  Orders,
-  Calendar,
-  Employees,
-  Stacked,
-  Pyramid,
-  Customers,
-  Kanban,
   Line,
-  Area,
-  Bar,
   SentimentPie,
   EmotionPie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  Editor,
   Search,
   Improvement,
   AspectPage,
@@ -121,37 +108,7 @@ const App = () => {
                 element={<PrivateRoute element={AllAnalytics} />}
               />
 
-              {/* pages */}
-              <Route
-                path="/dashboard/orders"
-                element={<PrivateRoute element={Orders} />}
-              />
-              <Route
-                path="/dashboard/employees"
-                element={<PrivateRoute element={Employees} />}
-              />
-              <Route
-                path="/dashboard/customers"
-                element={<PrivateRoute element={Customers} />}
-              />
-
-              {/* apps */}
-              <Route
-                path="/dashboard/kanban"
-                element={<PrivateRoute element={Kanban} />}
-              />
-              <Route
-                path="/dashboard/editor"
-                element={<PrivateRoute element={Editor} />}
-              />
-              <Route
-                path="/dashboard/calendar"
-                element={<PrivateRoute element={Calendar} />}
-              />
-              <Route
-                path="/dashboard/color-picker"
-                element={<PrivateRoute element={ColorPicker} />}
-              />
+              
 
               {/* charts */}
               <Route
