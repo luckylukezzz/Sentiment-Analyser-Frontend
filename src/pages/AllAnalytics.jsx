@@ -1,35 +1,19 @@
-import React,{ useEffect }from "react";
+import React, { useEffect, useState } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 // import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { positiveTerms, negativeTerms, aspectList } from "../data/dummy";
-import {
-  Stacked,
-  Button,
-  LineChart,
-  SparkLine,
-  ImprovementTips,
-  Aspects,
-} from "../components";
-import {
-  pieChartData,
-  improvementTips,
-  pieChartDataEmotion,
-} from "../data/dummy";
+import { Button, LineChart, ImprovementTips, Aspects } from "../components";
+import { pieChartData, pieChartDataEmotion } from "../data/dummy";
 import { Pie as PieChart, ChartsHeader } from "../components";
-import {
-  topBlocks,
-  medicalproBranding,
-  recentTransactions,
-  weeklyStats,
-  dropdownData,
-  SparklineAreaData,
-  ecomPieChartData,
-} from "../data/dummy";
+import {  dropdownData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { MdOutlineRateReview} from 'react-icons/md';
+import { TbCalendarTime } from "react-icons/tb";
+import {BiSolidCategory} from 'react-icons/bi';
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -46,19 +30,79 @@ const DropDown = ({ currentMode }) => (
 );
 
 const AllAnalytics = () => {
-  const { currentColor, currentMode ,selectedProduct} = useStateContext();
+  const { currentColor, currentMode, selectedProduct } = useStateContext();
+  const [sentimentChartData, setSentimentChartData] = useState(pieChartData);
+  const [emotionChartData, setEmotionChartData] = useState(pieChartDataEmotion);
+  const [positiveData, setPositiveData] = useState([]);
+  const [negativeData, setNegativeData] = useState([]);
+  const [topBlockData, setTopBlockData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(selectedProduct)
+    console.log(selectedProduct);
     if (!selectedProduct) {
-      navigate('/dashboard/search'); // Redirect to search if no product (parent_asin) is selected
+      navigate("/dashboard/search");
+    } else {
+      fetchChartData(selectedProduct);
+      console.log(selectedProduct);
     }
   }, [selectedProduct, navigate]);
 
+  const fetchChartData = async (asin) => {
+    try {
+      const response1 = await axios.get(
+        `http://localhost:5000/api/v1/dashboard/sentiment-pie?asin=${asin}`
+      );
+      setSentimentChartData(response1.data); 
+      const response2 = await axios.get(
+        `http://localhost:5000/api/v1/dashboard/emotion-pie?asin=${asin}`
+      );
+      setEmotionChartData(response2.data);
+      const response3 = await axios.get(
+        `http://localhost:5000/api/v1/dashboard/positive?asin=${asin}`
+      );
+      setPositiveData(response3.data);
+      const response4 = await axios.get(
+        `http://localhost:5000/api/v1/dashboard/negative?asin=${asin}`
+      );
+      setNegativeData(response4.data);
+      const response5 = await axios.get(
+        `http://localhost:5000/api/v1/dashboard/top-block?asin=${asin}`
+      );
+      setTopBlockData(response5.data);
+    } catch (error) {
+      console.error("Error fetching chart data:", error);
+    }
+  };
   if (!selectedProduct) {
     return null; // Optionally render a loading or placeholder state
   }
+  const topBlocks = [
+    {
+      icon: <BiSolidCategory />,
+      amount: topBlockData?.category || 'Loading...',
+      title: 'Category',
+      iconColor: 'rgb(228, 106, 118)',
+      iconBg: 'rgb(255, 244, 229)',
+      pcColor: 'green-600',
+    },
+    {
+      icon: <MdOutlineRateReview />,
+      amount: topBlockData?.noReviews || 'Loading...',
+      title: 'Analysing Reviews',
+      iconColor: '#03C9D7',
+      iconBg: '#E5FAFB',
+      pcColor: 'red-600',
+    },
+    {
+      icon: <TbCalendarTime />,
+      amount: topBlockData?.period || 'Loading...',
+      title: 'Time Period',
+      iconColor: 'rgb(255, 244, 229)',
+      iconBg: 'rgb(254, 201, 15)',
+      pcColor: 'green-600',
+    },
+  ];
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
@@ -66,9 +110,9 @@ const AllAnalytics = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">product</p>
-              <p className="text-2xl">Apple Iphone 12</p>
+              <p className="text-2xl">{topBlockData?.name}</p>
               <p className="font-bold text-gray-400">asin</p>
-              <p className="text-2xl">B812AD45C</p>
+              <p className="text-2xl">{topBlockData?.asin}</p>
             </div>
           </div>
         </div>
@@ -99,33 +143,7 @@ const AllAnalytics = () => {
       {/* ---------------------------------------------- */}
       <div className="flex gap-5 flex-wrap justify-center">
         {/* -------------------------------------------------- */}
-        {/* <div
-            className=" rounded-2xl md:w-400 p-4 m-3"
-            style={{ backgroundColor: currentColor }}
-          >
-            <div className="flex justify-between items-center ">
-              <p className="font-semibold text-white text-2xl">Earnings</p>
 
-              <div>
-                <p className="text-2xl text-white font-semibold mt-8">
-                  $63,448.78
-                </p>
-                <p className="text-gray-200">Monthly revenue</p>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <SparkLine
-                currentColor={currentColor}
-                id="column-sparkLine"
-                height="100px"
-                type="Column"
-                data={SparklineAreaData}
-                width="320"
-                color="rgb(242, 252, 253)"
-              />
-            </div>
-          </div> */}
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-80 md:w-800 h-128 m-3">
           <div className="flex justify-between items-center gap-2 mb-10">
             <p className="text-xl font-semibold">Sentiment over Time</p>
@@ -144,7 +162,7 @@ const AllAnalytics = () => {
           <div className="w-full h-full">
             <PieChart
               id="chart-pie-sentiments"
-              data={pieChartData}
+              data={sentimentChartData}
               legendVisiblity
               height="full"
             />
@@ -172,9 +190,9 @@ const AllAnalytics = () => {
             </button>
           </div>
           <div className="mt-4 max-h-96 overflow-y-auto">
-            {negativeTerms.length > 0 ? (
+            {negativeData.length > 0 ? (
               <div className="space-y-3">
-                {negativeTerms.map((term, index) => (
+                {negativeData.map((term, index) => (
                   <div
                     key={index}
                     className="bg-red-100 text-custom-red border border-red-300 rounded-lg shadow-md p-4"
@@ -200,9 +218,9 @@ const AllAnalytics = () => {
             </button>
           </div>
           <div className="mt-4 max-h-96 overflow-y-auto">
-            {positiveTerms.length > 0 ? (
+            {positiveData.length > 0 ? (
               <div className="space-y-3">
-                {positiveTerms.map((term, index) => (
+                {positiveData.map((term, index) => (
                   <div
                     key={index}
                     className="bg-lime-100 text-custom-green border border-custom-green rounded-lg shadow-md p-4"
@@ -227,7 +245,7 @@ const AllAnalytics = () => {
           <div className="w-full h-full">
             <PieChart
               id="chart-pie-emotions"
-              data={pieChartDataEmotion}
+              data={emotionChartData}
               legendVisiblity
               height="full"
             />

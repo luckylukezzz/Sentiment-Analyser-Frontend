@@ -73,113 +73,70 @@ export const negativeTerms = [
   'Mediocre',
   'Subpar',
 ];
+// export const lineChartData = [
+//   [
+//     { x: new Date(2005, 0, 1), y: 70 },
+//     { x: new Date(2006, 0, 1), y: 70 },
+//     { x: new Date(2007, 0, 1), y: 36 },
+//     { x: new Date(2008, 0, 1), y: 38 },
+//     { x: new Date(2009, 0, 1), y: 30 },
+//     { x: new Date(2010, 0, 1), y: 27 },
+//     { x: new Date(2011, 0, 1), y: 29 },
+//   ],
+//   [
+//     { x: new Date(2005, 0, 1), y: 20 },
+//     { x: new Date(2006, 0, 1), y: 20 },
+//     { x: new Date(2007, 0, 1), y: 48 },
+//     { x: new Date(2008, 0, 1), y: 50 },
+//     { x: new Date(2009, 0, 1), y: 36 },
+//     { x: new Date(2010, 0, 1), y: 37 },
+//     { x: new Date(2011, 0, 1), y: 42 },
+//   ],
 
-const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.EmployeeImage}
-      alt="employee"
-    />
-    <p>{props.Name}</p>
-  </div>
-);
+//   [
+//     { x: new Date(2005, 0, 1), y: 10 },
+//     { x: new Date(2006, 0, 1), y: 10 },
+//     { x: new Date(2007, 0, 1), y: 16 },
+//     { x: new Date(2008, 0, 1), y: 12 },
+//     { x: new Date(2009, 0, 1), y: 34 },
+//     { x: new Date(2010, 0, 1), y: 36 },
+//     { x: new Date(2011, 0, 1), y: 29 },
+//   ],
+// ];
 
-const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2">
-    <GrLocation />
-    <span>{props.Country}</span>
-  </div>
-);
 
-const customerGridImage = (props) => (
-  <div className="image flex gap-4">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.CustomerImage}
-      alt="employee"
-    />
-    <div>
-      <p>{props.CustomerName}</p>
-      <p>{props.CustomerEmail}</p>
-    </div>
-  </div>
-);
-
-const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
-    <p>{props.Status}</p>
-  </div>
-);
-export const areaPrimaryXAxis = {
-  valueType: 'DateTime',
-  labelFormat: 'y',
-  majorGridLines: { width: 0 },
-  intervalType: 'Years',
-  edgeLabelPlacement: 'Shift',
-  labelStyle: { color: 'gray' },
-};
-
-export const areaPrimaryYAxis = {
-  labelFormat: '{value}%',
-  lineStyle: { width: 0 },
-  maximum: 4,
-  interval: 1,
-  majorTickLines: { width: 0 },
-  minorTickLines: { width: 0 },
-  labelStyle: { color: 'gray' },
-
-};
-export const barPrimaryXAxis = {
-  valueType: 'Category',
-  interval: 1,
-  majorGridLines: { width: 0 },
-};
-export const barPrimaryYAxis = {
-  majorGridLines: { width: 0 },
-  majorTickLines: { width: 0 },
-  lineStyle: { width: 0 },
-  labelStyle: { color: 'transparent' },
-};
-const areaChartData = [
-  [
-    { x: new Date(2002, 0, 1), y: 2.2 },
-    { x: new Date(2003, 0, 1), y: 3.4 },
-    { x: new Date(2004, 0, 1), y: 2.8 },
-    { x: new Date(2005, 0, 1), y: 1.6 },
-    { x: new Date(2006, 0, 1), y: 2.3 },
-    { x: new Date(2007, 0, 1), y: 2.5 },
-    { x: new Date(2008, 0, 1), y: 2.9 },
-    { x: new Date(2009, 0, 1), y: 3.8 },
-    { x: new Date(2010, 0, 1), y: 1.4 },
-    { x: new Date(2011, 0, 1), y: 3.1 },
-  ],
-  [
-    { x: new Date(2002, 0, 1), y: 2 },
-    { x: new Date(2003, 0, 1), y: 1.7 },
-    { x: new Date(2004, 0, 1), y: 1.8 },
-    { x: new Date(2005, 0, 1), y: 2.1 },
-    { x: new Date(2006, 0, 1), y: 2.3 },
-    { x: new Date(2007, 0, 1), y: 1.7 },
-    { x: new Date(2008, 0, 1), y: 1.5 },
-    { x: new Date(2009, 0, 1), y: 2.8 },
-    { x: new Date(2010, 0, 1), y: 1.5 },
-    { x: new Date(2011, 0, 1), y: 2.3 },
-  ],
-  [
-    { x: new Date(2002, 0, 1), y: 0.8 },
-    { x: new Date(2003, 0, 1), y: 1.3 },
-    { x: new Date(2004, 0, 1), y: 1.1 },
-    { x: new Date(2005, 0, 1), y: 1.6 },
-    { x: new Date(2006, 0, 1), y: 2 },
-    { x: new Date(2007, 0, 1), y: 1.7 },
-    { x: new Date(2008, 0, 1), y: 2.3 },
-    { x: new Date(2009, 0, 1), y: 2.7 },
-    { x: new Date(2010, 0, 1), y: 1.1 },
-    { x: new Date(2011, 0, 1), y: 2.3 },
-  ],
-];
+// export const lineCustomSeries = [
+//   {
+//     dataSource: lineChartData[0],
+//     xName: 'x',
+//     yName: 'y',
+//     name: 'Positive',
+//     width: '2',
+//     marker: { visible: true, width: 10, height: 10 },
+//     type: 'Line',
+//     color: '#66BB6A'  // Soft Green for Positive
+//   },
+//   {
+//     dataSource: lineChartData[1],
+//     xName: 'x',
+//     yName: 'y',
+//     name: 'Negative',
+//     width: '2',
+//     marker: { visible: true, width: 10, height: 10 },
+//     type: 'Line',
+//     color: '#EF5350'  // Soft Red for Negative
+//   },
+//   {
+//     dataSource: lineChartData[2],
+//     xName: 'x',
+//     yName: 'y',
+//     name: 'Neutral',
+//     width: '2',
+//     marker: { visible: true, width: 10, height: 10 },
+//     type: 'Line',
+//     color: '#42A5F5'  // Soft Blue for Neutral
+//   },
+// ];
 
 export const LinePrimaryXAxis = {
   valueType: 'DateTime',
@@ -398,70 +355,7 @@ export const userProfileData = [
   //   iconBg: 'rgb(254, 201, 15)',
   // },
 ];
-// export const lineChartData = [
-//   [
-//     { x: new Date(2005, 0, 1), y: 70 },
-//     { x: new Date(2006, 0, 1), y: 70 },
-//     { x: new Date(2007, 0, 1), y: 36 },
-//     { x: new Date(2008, 0, 1), y: 38 },
-//     { x: new Date(2009, 0, 1), y: 30 },
-//     { x: new Date(2010, 0, 1), y: 27 },
-//     { x: new Date(2011, 0, 1), y: 29 },
-//   ],
-//   [
-//     { x: new Date(2005, 0, 1), y: 20 },
-//     { x: new Date(2006, 0, 1), y: 20 },
-//     { x: new Date(2007, 0, 1), y: 48 },
-//     { x: new Date(2008, 0, 1), y: 50 },
-//     { x: new Date(2009, 0, 1), y: 36 },
-//     { x: new Date(2010, 0, 1), y: 37 },
-//     { x: new Date(2011, 0, 1), y: 42 },
-//   ],
 
-//   [
-//     { x: new Date(2005, 0, 1), y: 10 },
-//     { x: new Date(2006, 0, 1), y: 10 },
-//     { x: new Date(2007, 0, 1), y: 16 },
-//     { x: new Date(2008, 0, 1), y: 12 },
-//     { x: new Date(2009, 0, 1), y: 34 },
-//     { x: new Date(2010, 0, 1), y: 36 },
-//     { x: new Date(2011, 0, 1), y: 29 },
-//   ],
-// ];
-
-
-// export const lineCustomSeries = [
-//   {
-//     dataSource: lineChartData[0],
-//     xName: 'x',
-//     yName: 'y',
-//     name: 'Positive',
-//     width: '2',
-//     marker: { visible: true, width: 10, height: 10 },
-//     type: 'Line',
-//     color: '#66BB6A'  // Soft Green for Positive
-//   },
-//   {
-//     dataSource: lineChartData[1],
-//     xName: 'x',
-//     yName: 'y',
-//     name: 'Negative',
-//     width: '2',
-//     marker: { visible: true, width: 10, height: 10 },
-//     type: 'Line',
-//     color: '#EF5350'  // Soft Red for Negative
-//   },
-//   {
-//     dataSource: lineChartData[2],
-//     xName: 'x',
-//     yName: 'y',
-//     name: 'Neutral',
-//     width: '2',
-//     marker: { visible: true, width: 10, height: 10 },
-//     type: 'Line',
-//     color: '#42A5F5'  // Soft Blue for Neutral
-//   },
-// ];
 
 export const dropdownData = [
   {
@@ -491,18 +385,18 @@ export const pieChartDataEmotion = [
   { x: 'NaN', y: 5, text: '5%', color: '#FF8A80' },  // Soft Purple
 ];
 
-export const improvementTips = [
-  "Increase battery life to extend usage time and reduce customer complaints about frequent charging.",
-  "Improve the durability of materials used to enhance product longevity and reduce wear and tear.",
-  "Expand color options to appeal to a broader demographic and match customer preferences.",
-  "Optimize the user interface for better accessibility, ensuring that all users can easily navigate the product.",
-  "Enhance packaging to provide better protection during shipping and improve the unboxing experience.",
-  "Reduce the weight of the product to make it more portable and convenient for users on the go.",
-  "Offer customizable features to allow customers to personalize the product according to their needs.",
-  "Increase the clarity of the instruction manual to reduce user confusion and improve setup time.",
-  "Upgrade the camera quality to provide sharper and more vibrant images, meeting customer expectations.",
-  "Add more connectivity options, such as Bluetooth and Wi-Fi, to increase the product's versatility.",
-  "Introduce a loyalty program or discount for repeat purchases to encourage customer retention.",
-  "Reduce the product's environmental impact by using eco-friendly materials and sustainable practices.",
-];
 
+// export const improvementTips = [
+//   "Increase battery life to extend usage time and reduce customer complaints about frequent charging.",
+//   "Improve the durability of materials used to enhance product longevity and reduce wear and tear.",
+//   "Expand color options to appeal to a broader demographic and match customer preferences.",
+//   "Optimize the user interface for better accessibility, ensuring that all users can easily navigate the product.",
+//   "Enhance packaging to provide better protection during shipping and improve the unboxing experience.",
+//   "Reduce the weight of the product to make it more portable and convenient for users on the go.",
+//   "Offer customizable features to allow customers to personalize the product according to their needs.",
+//   "Increase the clarity of the instruction manual to reduce user confusion and improve setup time.",
+//   "Upgrade the camera quality to provide sharper and more vibrant images, meeting customer expectations.",
+//   "Add more connectivity options, such as Bluetooth and Wi-Fi, to increase the product's versatility.",
+//   "Introduce a loyalty program or discount for repeat purchases to encourage customer retention.",
+//   "Reduce the product's environmental impact by using eco-friendly materials and sustainable practices.",
+// ];

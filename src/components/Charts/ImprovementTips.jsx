@@ -1,7 +1,32 @@
-// ImprovementTips.js
-import { improvementTips } from '../../data/dummy';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const ImprovementTips = ({ clz }) => {
+  const { selectedProduct } = useStateContext(); 
+  const navigate = useNavigate();
+  const [chartData, setChartData] = useState([]);
+
+  useEffect(() => {
+    console.log(selectedProduct); 
+    if (!selectedProduct) {
+      navigate('/dashboard/search'); 
+    } else {
+      fetchChartData(selectedProduct);
+      console.log(selectedProduct)
+    }
+  }, [selectedProduct, navigate]);
+
+  const fetchChartData = async (asin) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/v1/dashboard/improvement?asin=${asin}`);
+      setChartData(response.data); // Update chart data with the fetched data
+    } catch (error) {
+      console.error('Error fetching chart data:', error);
+    }
+  };
+
   return (
     <>
       <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg flex justify-between">
@@ -14,7 +39,7 @@ const ImprovementTips = ({ clz }) => {
       </div>
 
       <div className={`mt-4 space-y-4 ${clz} overflow-y-auto`}>
-        {improvementTips.map((tip, index) => (
+        {chartData.map((tip, index) => (
           <div
             key={index}
             className="bg-gray-100 dark:bg-secondary-dark-bg p-4 rounded-lg shadow"
