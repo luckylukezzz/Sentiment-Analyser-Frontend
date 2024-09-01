@@ -9,22 +9,12 @@ import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 import {
   AllAnalytics,
-  Orders,
-  Calendar,
-  Employees,
-  Stacked,
-  Pyramid,
-  Customers,
-  Kanban,
   Line,
-  Area,
-  Bar,
-  Pie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  Editor,
+  SentimentPie,
+  EmotionPie,
   Search,
+  Improvement,
+  AspectPage,
 } from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
@@ -118,37 +108,7 @@ const App = () => {
                 element={<PrivateRoute element={AllAnalytics} />}
               />
 
-              {/* pages */}
-              <Route
-                path="/dashboard/orders"
-                element={<PrivateRoute element={Orders} />}
-              />
-              <Route
-                path="/dashboard/employees"
-                element={<PrivateRoute element={Employees} />}
-              />
-              <Route
-                path="/dashboard/customers"
-                element={<PrivateRoute element={Customers} />}
-              />
-
-              {/* apps */}
-              <Route
-                path="/dashboard/kanban"
-                element={<PrivateRoute element={Kanban} />}
-              />
-              <Route
-                path="/dashboard/editor"
-                element={<PrivateRoute element={Editor} />}
-              />
-              <Route
-                path="/dashboard/calendar"
-                element={<PrivateRoute element={Calendar} />}
-              />
-              <Route
-                path="/dashboard/color-picker"
-                element={<PrivateRoute element={ColorPicker} />}
-              />
+              
 
               {/* charts */}
               <Route
@@ -156,32 +116,20 @@ const App = () => {
                 element={<PrivateRoute element={Line} />}
               />
               <Route
-                path="/dashboard/area"
-                element={<PrivateRoute element={Area} />}
+                path="/dashboard/sentiment-pie"
+                element={<PrivateRoute element={SentimentPie} />}
               />
               <Route
-                path="/dashboard/bar"
-                element={<PrivateRoute element={Bar} />}
+                path="/dashboard/emotion-pie"
+                element={<PrivateRoute element={EmotionPie} />}
               />
               <Route
-                path="/dashboard/pie"
-                element={<PrivateRoute element={Pie} />}
+                path="/dashboard/improvement"
+                element={<PrivateRoute element={Improvement} />}
               />
               <Route
-                path="/dashboard/financial"
-                element={<PrivateRoute element={Financial} />}
-              />
-              <Route
-                path="/dashboard/color-mapping"
-                element={<PrivateRoute element={ColorMapping} />}
-              />
-              <Route
-                path="/dashboard/pyramid"
-                element={<PrivateRoute element={Pyramid} />}
-              />
-              <Route
-                path="/dashboard/stacked"
-                element={<PrivateRoute element={Stacked} />}
+                path="/dashboard/aspect"
+                element={<PrivateRoute element={AspectPage} />}
               />
             </Routes>
           </div>

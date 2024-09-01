@@ -1,12 +1,16 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { LiaCertificateSolid } from "react-icons/lia";
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { FaStar } from "react-icons/fa6";
+import { FcCustomerSupport } from "react-icons/fc";
+import { TbCalendarTime,TbTruckDelivery } from "react-icons/tb";
 import { IoIosSearch } from "react-icons/io";
-import { BiColorFill } from 'react-icons/bi';
+import { BiColorFill,BiSolidCategory,BiSolidCrown } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { MdOutlineSupervisorAccount,MdOutlineRateReview} from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
@@ -43,7 +47,42 @@ export const gridOrderStatus = (props) => (
     {props.Status}
   </button>
 );
+export const positiveTerms = [
+  'Excellent',
+  'Outstanding product amazing Outstanding product amazing',
+  'Fantastic',
+  'Wonderful',
+  'Great',
+  'Amazing',
+  'Superb',
+  'Impressive',
+  'Marvelous',
+  'Exceptional',
+  'Excellent',
+  'Outstanding',
+  'Fantastic',
+  'Wonderful',
+  'Great',
+  'Amazing',
+  'Superb',
+  'Impressive',
+  'Marvelous',
+  'Exceptional',
 
+];
+
+export const negativeTerms = [
+  'Terrible',
+  'Awful',
+  'Horrible',
+  'Poor',
+  'Bad',
+  'Dreadful',
+  'Unpleasant',
+  'Disappointing',
+  'Mediocre',
+  'Subpar',
+];
 export const kanbanGrid = [
   { headerText: 'To Do',
     keyField: 'Open',
@@ -477,10 +516,12 @@ export const links = [
       {
         name: 'search',
         icon: <IoIosSearch />,
+        route: 'search',
       },
       {
         name: 'All-Analytics',
         icon: <FiShoppingBag />,
+        route: 'All-Analytics',
       },
      
     ],
@@ -528,38 +569,51 @@ export const links = [
     title: 'Charts',
     links: [
       {
-        name: 'line',
+        name: 'Sentiment vs Time',
         icon: <AiOutlineStock />,
+        route: "line"
       },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
+      // {
+      //   name: 'area',
+      //   icon: <AiOutlineAreaChart />,
+      // },
 
+      // {
+      //   name: 'bar',
+      //   icon: <AiOutlineBarChart />,
+      // },
       {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
+        name: 'Sentiment Breakdown',
         icon: <FiPieChart />,
+        route: 'sentiment-pie',
       },
       {
-        name: 'financial',
+        name: 'Emotions Breakdown',
+        icon: <FiPieChart />,
+        route: 'emotion-pie',
+      },
+      {
+        name: 'Improvements',
         icon: <RiStockLine />,
+        route: 'improvement',
       },
       {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
+        name: 'Aspects Breakdown',
+        icon: <FaStar />,
+        route: 'aspect',
       },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
+      // {
+      //   name: 'color-mapping',
+      //   icon: <BsBarChart />,
+      // },
+      // {
+      //   name: 'pyramid',
+      //   icon: <GiLouvrePyramid />,
+      // },
+      // {
+      //   name: 'stacked',
+      //   icon: <AiOutlineBarChart />,
+      // },
     ],
   },
 ];
@@ -619,91 +673,79 @@ export const chatData = [
   },
 ];
 
-export const earningData = [
+export const topBlocks = [
   {
-    icon: <MdOutlineSupervisorAccount />,
-    amount: '39,354',
-    percentage: '-4%',
-    title: 'Customers',
-    iconColor: '#03C9D7',
-    iconBg: '#E5FAFB',
-    pcColor: 'red-600',
-  },
-  {
-    icon: <BsBoxSeam />,
-    amount: '4,396',
-    percentage: '+23%',
-    title: 'Products',
-    iconColor: 'rgb(255, 244, 229)',
-    iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
-  },
-  {
-    icon: <FiBarChart />,
-    amount: '423,39',
-    percentage: '+38%',
-    title: 'Sales',
+    icon: <BiSolidCategory />,
+    amount: 'Electronics and Accessories',
+    title: 'Category',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
     pcColor: 'green-600',
   },
   {
-    icon: <HiOutlineRefresh />,
-    amount: '39,354',
-    percentage: '-12%',
-    title: 'Refunds',
-    iconColor: 'rgb(0, 194, 146)',
-    iconBg: 'rgb(235, 250, 242)',
+    icon: <MdOutlineRateReview />,
+    amount: '450',
+    title: 'Analysing Reviews',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
     pcColor: 'red-600',
   },
+  
+  {
+    icon: <TbCalendarTime />,
+    amount: '2021 Apr - 2024 Jun',
+    title: 'Time Peroid',
+    iconColor: 'rgb(255, 244, 229)',
+    iconBg: 'rgb(254, 201, 15)',
+    pcColor: 'green-600',
+  },
+
 ];
 
-export const recentTransactions = [
+export const aspectList = [
   {
-    icon: <BsCurrencyDollar />,
-    amount: '+$350',
-    title: 'Paypal Transfer',
-    desc: 'Money Added',
+    icon: <BiSolidCrown />,
+    score: '0.99',
+    title: 'Quality',
+    sentiment: 'Positive',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'green-600',
   },
   {
-    icon: <BsShield />,
-    amount: '-$560',
-    desc: 'Bill Payment',
-    title: 'Wallet',
+    icon: <BsCurrencyDollar />,
+    score: '0.61',
+    sentiment: 'Negative',
+    title: 'Price',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
   },
   {
-    icon: <FiCreditCard />,
-    amount: '+$350',
-    title: 'Credit Card',
-    desc: 'Money reversed',
+    icon: <TbTruckDelivery />,
+    score: '0.72',
+    title: 'Shipping',
+    sentiment: 'Positive',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
 
     pcColor: 'green-600',
   },
   {
-    icon: <TiTick />,
-    amount: '+$350',
-    title: 'Bank Transfer',
-    desc: 'Money Added',
-
+    icon: <FcCustomerSupport />,
+    score: '0.62',
+    title: 'Customer Service',
+    sentiment: 'Neutral',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
+    pcColor: 'indigo-600',
   },
   {
-    icon: <BsCurrencyDollar />,
-    amount: '-$50',
-    percentage: '+38%',
-    title: 'Refund',
-    desc: 'Payment Sent',
+    icon: <LiaCertificateSolid />,
+    score: '0.88',
+    title: 'Warranty ',
+    sentiment: 'Negative',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
@@ -713,7 +755,7 @@ export const recentTransactions = [
 export const weeklyStats = [
   {
     icon: <FiShoppingCart />,
-    amount: '-$560',
+    score: '-$560',
     title: 'Top Sales',
     desc: 'Johnathan Doe',
     iconBg: '#FB9678',
@@ -721,7 +763,7 @@ export const weeklyStats = [
   },
   {
     icon: <FiStar />,
-    amount: '-$560',
+    score: '-$560',
     title: 'Best Seller',
     desc: 'MaterialPro Admin',
     iconBg: 'rgb(254, 201, 15)',
@@ -729,7 +771,7 @@ export const weeklyStats = [
   },
   {
     icon: <BsChatLeft />,
-    amount: '+$560',
+    score: '+$560',
     title: 'Most Commented',
     desc: 'Ample Admin',
     iconBg: '#00C292',
@@ -3047,34 +3089,35 @@ export const scheduleData = [
 
 export const lineChartData = [
   [
-    { x: new Date(2005, 0, 1), y: 21 },
-    { x: new Date(2006, 0, 1), y: 24 },
+    { x: new Date(2005, 0, 1), y: 70 },
+    { x: new Date(2006, 0, 1), y: 70 },
     { x: new Date(2007, 0, 1), y: 36 },
     { x: new Date(2008, 0, 1), y: 38 },
-    { x: new Date(2009, 0, 1), y: 54 },
-    { x: new Date(2010, 0, 1), y: 57 },
-    { x: new Date(2011, 0, 1), y: 70 },
+    { x: new Date(2009, 0, 1), y: 30 },
+    { x: new Date(2010, 0, 1), y: 27 },
+    { x: new Date(2011, 0, 1), y: 29 },
   ],
   [
-    { x: new Date(2005, 0, 1), y: 28 },
-    { x: new Date(2006, 0, 1), y: 44 },
+    { x: new Date(2005, 0, 1), y: 20 },
+    { x: new Date(2006, 0, 1), y: 20 },
     { x: new Date(2007, 0, 1), y: 48 },
     { x: new Date(2008, 0, 1), y: 50 },
-    { x: new Date(2009, 0, 1), y: 66 },
-    { x: new Date(2010, 0, 1), y: 78 },
-    { x: new Date(2011, 0, 1), y: 84 },
+    { x: new Date(2009, 0, 1), y: 36 },
+    { x: new Date(2010, 0, 1), y: 37 },
+    { x: new Date(2011, 0, 1), y: 42 },
   ],
 
   [
     { x: new Date(2005, 0, 1), y: 10 },
-    { x: new Date(2006, 0, 1), y: 20 },
-    { x: new Date(2007, 0, 1), y: 30 },
-    { x: new Date(2008, 0, 1), y: 39 },
-    { x: new Date(2009, 0, 1), y: 50 },
-    { x: new Date(2010, 0, 1), y: 70 },
-    { x: new Date(2011, 0, 1), y: 100 },
+    { x: new Date(2006, 0, 1), y: 10 },
+    { x: new Date(2007, 0, 1), y: 16 },
+    { x: new Date(2008, 0, 1), y: 12 },
+    { x: new Date(2009, 0, 1), y: 34 },
+    { x: new Date(2010, 0, 1), y: 36 },
+    { x: new Date(2011, 0, 1), y: 29 },
   ],
 ];
+
 export const dropdownData = [
   {
     Id: '1',
@@ -3098,41 +3141,68 @@ export const SparklineAreaData = [
 ];
 
 export const lineCustomSeries = [
-  { dataSource: lineChartData[0],
+  {
+    dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Germany',
+    name: 'Positive',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
-  { dataSource: lineChartData[1],
+    type: 'Line',
+    color: '#66BB6A'  // Soft Green for Positive
+  },
+  {
+    dataSource: lineChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'England',
+    name: 'Negative',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
-  { dataSource: lineChartData[2],
+    type: 'Line',
+    color: '#EF5350'  // Soft Red for Negative
+  },
+  {
+    dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
-    name: 'India',
+    name: 'Neutral',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
+    type: 'Line',
+    color: '#42A5F5'  // Soft Blue for Neutral
+  },
 ];
+
 
 export const pieChartData = [
-  { x: 'Labour', y: 18, text: '18%' },
-  { x: 'Legal', y: 8, text: '8%' },
-  { x: 'Production', y: 15, text: '15%' },
-  { x: 'License', y: 11, text: '11%' },
-  { x: 'Facilities', y: 18, text: '18%' },
-  { x: 'Taxes', y: 14, text: '14%' },
-  { x: 'Insurance', y: 16, text: '16%' },
+  { x: 'Positive', y: 70, text: '70%', color: '#00bdae' },  // Soft Green
+  { x: 'Negative', y:20, text: '20%', color: '#FF8A80' },   // Soft Red
+  { x: 'Neutral', y: 10, text: '10%', color: '#357cd2' },   // Soft Grey
 ];
+
+export const pieChartDataEmotion = [
+  { x: 'Love It', y: 40, text: '40%', color: '#ff6f61' },   // Warm Coral
+  { x: 'Happy', y: 25, text: '25%', color: '#ffd54f' },     // Bright Yellow
+  { x: 'Neutral', y: 20, text: '20%', color: '#80cbc4' },   // Soft Teal
+  { x: 'Angry', y: 10, text: '10%', color: '#ff8a80' },     // Soft Red
+  { x: 'Frustrated', y: 5, text: '5%', color: '#ba68c8' },  // Soft Purple
+];
+
+export const improvementTips = [
+  "Increase battery life to extend usage time and reduce customer complaints about frequent charging.",
+  "Improve the durability of materials used to enhance product longevity and reduce wear and tear.",
+  "Expand color options to appeal to a broader demographic and match customer preferences.",
+  "Optimize the user interface for better accessibility, ensuring that all users can easily navigate the product.",
+  "Enhance packaging to provide better protection during shipping and improve the unboxing experience.",
+  "Reduce the weight of the product to make it more portable and convenient for users on the go.",
+  "Offer customizable features to allow customers to personalize the product according to their needs.",
+  "Increase the clarity of the instruction manual to reduce user confusion and improve setup time.",
+  "Upgrade the camera quality to provide sharper and more vibrant images, meeting customer expectations.",
+  "Add more connectivity options, such as Bluetooth and Wi-Fi, to increase the product's versatility.",
+  "Introduce a loyalty program or discount for repeat purchases to encourage customer retention.",
+  "Reduce the product's environmental impact by using eco-friendly materials and sustainable practices.",
+];
+
 
 export const contextMenuItems = [
   'AutoFit',
