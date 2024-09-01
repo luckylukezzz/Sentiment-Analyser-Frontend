@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Image2 from "../assets/image2.png";
+import { ReactComponent as LoginImg } from '../assets/LoginImg.svg';
 import Logo from "../assets/logo.png";
 import GoogleSvg from "../assets/icons8-google.svg";
 import { FaEye } from "react-icons/fa6";
@@ -57,7 +57,7 @@ const Login = () => {
   return (
     <div className="login-main">
       <div className="login-left">
-        <img src={Image2} alt=""  />
+      <LoginImg /> 
       </div>
       <div className="login-right">
         <div className="login-right-container">
