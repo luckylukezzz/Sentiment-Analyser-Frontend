@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { ChartsHeader, LineChart } from '../../components'; 
 
 const Line = () => {
-  const { selectedProduct } = useStateContext(); // Destructure selectedProduct from context
+  const { selectedProduct } = useStateContext(); 
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     console.log(selectedProduct); // Log the selectedProduct for debugging
     if (!selectedProduct) {
