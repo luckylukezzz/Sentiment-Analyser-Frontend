@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect }from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 // import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from "react-icons/io";
@@ -28,6 +28,7 @@ import {
   ecomPieChartData,
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
+import { useNavigate } from 'react-router-dom';
 import product9 from "../data/product9.jpg";
 
 const DropDown = ({ currentMode }) => (
@@ -45,8 +46,19 @@ const DropDown = ({ currentMode }) => (
 );
 
 const AllAnalytics = () => {
-  const { currentColor, currentMode } = useStateContext();
+  const { currentColor, currentMode ,selectedProduct} = useStateContext();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    console.log(selectedProduct)
+    if (!selectedProduct) {
+      navigate('/dashboard/search'); // Redirect to search if no product (parent_asin) is selected
+    }
+  }, [selectedProduct, navigate]);
+
+  if (!selectedProduct) {
+    return null; // Optionally render a loading or placeholder state
+  }
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">

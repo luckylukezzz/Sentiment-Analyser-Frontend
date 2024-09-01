@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
+import { useStateContext } from '../contexts/ContextProvider';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
+  const { setSelectedProduct } = useStateContext();
 
+  const handleProductSelect = (item) => {
+    setSelectedProduct(item.parent_asin); 
+  };
   // Function to fetch products
   const fetchProducts = useCallback(debounce((term) => {
     if (term.length === 0) {
@@ -49,6 +54,7 @@ function Search() {
           <div
             key={item.id}
             className="bg-light-gray h-64 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl"
+            onClick={() => handleProductSelect(item)}
           >
             <img
               src={item.image}

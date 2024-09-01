@@ -7,11 +7,11 @@ import { useStateContext } from '../contexts/ContextProvider';
 const Logout = () => {
   const navigate = useNavigate();
   const [remainingTime, setRemainingTime] = useState(3); // Start with 3 seconds
-  const { currentColor } = useStateContext(); // Use currentColor from context
+  const { currentColor,setSelectedProduct } = useStateContext(); // Use currentColor from context
 
   useEffect(() => {
     localStorage.removeItem("auth");
-
+    setSelectedProduct(null)
     const interval = setInterval(() => {
       setRemainingTime((prevTime) => {
         if (prevTime <= 1) {
