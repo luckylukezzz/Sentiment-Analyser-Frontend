@@ -7,13 +7,13 @@ import { positiveTerms, negativeTerms, aspectList } from "../data/dummy";
 import { Button, LineChart, ImprovementTips, Aspects } from "../components";
 import { pieChartData, pieChartDataEmotion } from "../data/dummy";
 import { Pie as PieChart, ChartsHeader } from "../components";
-import {  dropdownData } from "../data/dummy";
+import { dropdownData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { MdOutlineRateReview} from 'react-icons/md';
+import { MdOutlineRateReview } from "react-icons/md";
 import { TbCalendarTime } from "react-icons/tb";
-import {BiSolidCategory} from 'react-icons/bi';
+import { BiSolidCategory } from "react-icons/bi";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -37,6 +37,7 @@ const AllAnalytics = () => {
   const [negativeData, setNegativeData] = useState([]);
   const [topBlockData, setTopBlockData] = useState([]);
   const navigate = useNavigate();
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
 
   useEffect(() => {
     console.log(selectedProduct);
@@ -50,57 +51,66 @@ const AllAnalytics = () => {
 
   const fetchChartData = async (asin) => {
     try {
-      const response1 = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/sentiment-pie?asin=${asin}`
-      );
-      setSentimentChartData(response1.data); 
-      const response2 = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/emotion-pie?asin=${asin}`
-      );
-      setEmotionChartData(response2.data);
-      const response3 = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/positive?asin=${asin}`
-      );
-      setPositiveData(response3.data);
-      const response4 = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/negative?asin=${asin}`
-      );
-      setNegativeData(response4.data);
-      const response5 = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/top-block?asin=${asin}`
-      );
-      setTopBlockData(response5.data);
+      const urls = [
+        `${backendApiUrl}/dashboard/sentiment-pie?asin=${asin}`,
+        `${backendApiUrl}/dashboard/emotion-pie?asin=${asin}`,
+        `${backendApiUrl}/dashboard/positive?asin=${asin}`,
+        `${backendApiUrl}/dashboard/negative?asin=${asin}`,
+        `${backendApiUrl}/dashboard/top-block?asin=${asin}`,
+      ];
+
+  
+      const headers = {
+        "ngrok-skip-browser-warning": "true",
+      };
+
+      
+      const [
+        sentimentResponse,
+        emotionResponse,
+        positiveResponse,
+        negativeResponse,
+        topBlockResponse,
+      ] = await Promise.all(urls.map((url) => axios.get(url, { headers })));
+
+   
+      setSentimentChartData(sentimentResponse.data);
+      setEmotionChartData(emotionResponse.data);
+      setPositiveData(positiveResponse.data);
+      setNegativeData(negativeResponse.data);
+      setTopBlockData(topBlockResponse.data);
     } catch (error) {
       console.error("Error fetching chart data:", error);
     }
   };
+
   if (!selectedProduct) {
     return null; // Optionally render a loading or placeholder state
   }
   const topBlocks = [
     {
       icon: <BiSolidCategory />,
-      amount: topBlockData?.category || 'Loading...',
-      title: 'Category',
-      iconColor: 'rgb(228, 106, 118)',
-      iconBg: 'rgb(255, 244, 229)',
-      pcColor: 'green-600',
+      amount: topBlockData?.category || "Loading...",
+      title: "Category",
+      iconColor: "rgb(228, 106, 118)",
+      iconBg: "rgb(255, 244, 229)",
+      pcColor: "green-600",
     },
     {
       icon: <MdOutlineRateReview />,
-      amount: topBlockData?.noReviews || 'Loading...',
-      title: 'Analysing Reviews',
-      iconColor: '#03C9D7',
-      iconBg: '#E5FAFB',
-      pcColor: 'red-600',
+      amount: topBlockData?.noReviews || "Loading...",
+      title: "Analysing Reviews",
+      iconColor: "#03C9D7",
+      iconBg: "#E5FAFB",
+      pcColor: "red-600",
     },
     {
       icon: <TbCalendarTime />,
-      amount: topBlockData?.period || 'Loading...',
-      title: 'Time Period',
-      iconColor: 'rgb(255, 244, 229)',
-      iconBg: 'rgb(254, 201, 15)',
-      pcColor: 'green-600',
+      amount: topBlockData?.period || "Loading...",
+      title: "Time Period",
+      iconColor: "rgb(255, 244, 229)",
+      iconBg: "rgb(254, 201, 15)",
+      pcColor: "green-600",
     },
   ];
   return (

@@ -22,7 +22,7 @@ const LineChart = () => {
   const [chartData, setChartData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
   useEffect(() => {
     if (!selectedProduct) {
       navigate("/dashboard/search");
@@ -34,8 +34,13 @@ const LineChart = () => {
   const fetchChartData = async (asin) => {
     setIsLoading(true);
     try {
+      const headers = {
+        'ngrok-skip-browser-warning': 'true'
+      };
+  
       const response = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/line-data?asin=${asin}`
+        `${backendApiUrl}/dashboard/line-data?asin=${asin}`, 
+        { headers }
       );
       setChartData(response.data);
     } catch (error) {
@@ -45,6 +50,7 @@ const LineChart = () => {
       setIsLoading(false);
     }
   };
+  
 
   if (!selectedProduct) {
     return null;

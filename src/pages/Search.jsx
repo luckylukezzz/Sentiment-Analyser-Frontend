@@ -9,7 +9,8 @@ function Search() {
   const [products, setProducts] = useState([]);
   const { setSelectedProduct } = useStateContext();
   const navigate = useNavigate();
-
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
+  console.log(backendApiUrl);
   const handleProductSelect = (item) => {
     setSelectedProduct(item.parent_asin);
     navigate("/dashboard/");
@@ -20,13 +21,32 @@ function Search() {
       if (term.length === 0) {
         // Fetch initial 10 products if search term is empty
         axios
-          .get("http://127.0.0.1:5000/search")
-          .then((response) => setProducts(response.data))
+          .get(
+            `${backendApiUrl}/dashboard/search`,
+            {
+              headers: {
+                "ngrok-skip-browser-warning": "true",
+              },
+            }
+          )
+          .then((response) => {
+            console.log("Response data:", response);
+            setProducts(response.data);
+          })
           .catch((error) => console.error("Error fetching data:", error));
+
+        console.log("products are", products);
       } else {
         // Fetch products based on search term
         axios
-          .get(`http://127.0.0.1:5000/search?term=${term}`)
+          .get(
+            `${backendApiUrl}/dashboard/search?term=${term}`,
+            {
+              headers: {
+                "ngrok-skip-browser-warning": "true",
+              },
+            }
+          )
           .then((response) => setProducts(response.data))
           .catch((error) => console.error("Error fetching data:", error));
       }
@@ -74,7 +94,7 @@ function Search() {
             onClick={() => handleProductSelect(item)}
           >
             <img
-              src={item.image ? item.image : "/images/productimg.jpg"} 
+              src={item.image ? item.image : "/images/productimg.jpg"}
               alt={item.title}
               className="w-full h-32 object-cover rounded-md"
             />

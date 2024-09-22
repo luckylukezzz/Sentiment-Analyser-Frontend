@@ -10,6 +10,7 @@ const SentimentPie = () => {
   const { currentMode, selectedProduct } = useStateContext();
   const navigate = useNavigate();
   const [chartData, setChartData] = useState(pieChartData);
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
 
   useEffect(() => {
     console.log(selectedProduct);
@@ -22,14 +23,20 @@ const SentimentPie = () => {
   }, [selectedProduct, navigate]);
   const fetchChartData = async (asin) => {
     try {
+      const headers = {
+        "ngrok-skip-browser-warning": "true",
+      };
+
       const response = await axios.get(
-        `http://localhost:5000/api/v1/dashboard/sentiment-pie?asin=${asin}`
+        `${backendApiUrl}/dashboard/sentiment-pie?asin=${asin}`,
+        { headers }
       );
       setChartData(response.data);
     } catch (error) {
       console.error("Error fetching chart data:", error);
     }
   };
+
   if (!selectedProduct) {
     return null;
   }

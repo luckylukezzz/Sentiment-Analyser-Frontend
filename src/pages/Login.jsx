@@ -16,7 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { currentColor } = useStateContext();
   const backendApiUrl = process.env.REACT_APP_BACKEND_API;
- console.log(backendApiUrl)
+ 
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();

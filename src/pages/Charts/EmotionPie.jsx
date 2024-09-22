@@ -9,7 +9,7 @@ const EmotionPie = () => {
   const { currentMode } = useStateContext();
   const { selectedProduct } = useStateContext(); 
   const navigate = useNavigate();
-  
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
   const [chartData, setChartData] = useState(pieChartDataEmotion); // Default to dummy data
 
   useEffect(() => {
@@ -24,7 +24,10 @@ const EmotionPie = () => {
 
   const fetchChartData = async (asin) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/dashboard/emotion-pie?asin=${asin}`);
+      const headers = {
+        'ngrok-skip-browser-warning': 'true'
+      };
+      const response = await axios.get(`${backendApiUrl}/dashboard/emotion-pie?asin=${asin}`,{ headers });
       setChartData(response.data); // Update chart data with the fetched data
     } catch (error) {
       console.error('Error fetching chart data:', error);

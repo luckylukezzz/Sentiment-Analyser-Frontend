@@ -1,29 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const ImprovementTips = ({ clz }) => {
-  const { selectedProduct } = useStateContext(); 
+  const { selectedProduct } = useStateContext();
   const navigate = useNavigate();
   const [chartData, setChartData] = useState([]);
-
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
   useEffect(() => {
-    console.log(selectedProduct); 
+    console.log(selectedProduct);
     if (!selectedProduct) {
-      navigate('/dashboard/search'); 
+      navigate("/dashboard/search");
     } else {
       fetchChartData(selectedProduct);
-      console.log(selectedProduct)
+      console.log(selectedProduct);
     }
   }, [selectedProduct, navigate]);
 
   const fetchChartData = async (asin) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/dashboard/improvement?asin=${asin}`);
+      const headers = {
+        "ngrok-skip-browser-warning": "true",
+      };
+
+      const response = await axios.get(
+        `${backendApiUrl}/dashboard/improvement?asin=${asin}`,
+        { headers }
+      );
+
       setChartData(response.data); // Update chart data with the fetched data
     } catch (error) {
-      console.error('Error fetching chart data:', error);
+      console.error("Error fetching chart data:", error);
     }
   };
 
@@ -44,9 +52,7 @@ const ImprovementTips = ({ clz }) => {
             key={index}
             className="bg-gray-100 dark:bg-secondary-dark-bg p-4 rounded-lg shadow"
           >
-            <p className="text-md text-gray-800 dark:text-gray-200">
-              {tip}
-            </p>
+            <p className="text-md text-gray-800 dark:text-gray-200">{tip}</p>
           </div>
         ))}
       </div>
