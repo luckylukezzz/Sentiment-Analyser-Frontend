@@ -56,7 +56,7 @@ login/ landing/reg */
   }
 
   .register-left {
-    display: flex;
+    display: none;
   }
 }
 
