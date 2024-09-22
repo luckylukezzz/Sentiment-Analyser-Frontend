@@ -1,4 +1,4 @@
-import { Aspects } from "../../components";
+import { Aspects, LimeGraph } from "../../components";
 import React, { useEffect } from 'react'; 
 import { useStateContext } from '../../contexts/ContextProvider'; 
 import { useNavigate } from 'react-router-dom'; 
@@ -21,7 +21,8 @@ const AspectPage = () => {
   
     return ( 
         <div className="flex items-center justify-center min-h-screen">
-        <Aspects/>
+        
+        <LimeGraph/>
         </div>
      );
 }
