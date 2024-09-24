@@ -1,57 +1,23 @@
 {
-  "quality": {
-    "sentiment": "negative",
-    "features": [
-      { "feature": "not", "weight": 0.3563 },
-      { "feature": "defected", "weight": 0.1763 },
-      { "feature": "buying", "weight": 0.1256 },
-      { "feature": "electronics", "weight": 0.1035 },
-      { "feature": "came", "weight": 0.1026 },
-      { "feature": "phone", "weight": 0.0761 }
-    ]
-  },
+  "text": "perfect",
   "price": {
-    "sentiment": "negative",
-    "features": [
-      { "feature": "not", "weight": 0.6901 },
-      { "feature": "buying", "weight": 0.134 },
-      { "feature": "this", "weight": 0.0991 },
-      { "feature": "phone", "weight": -0.0597 },
-      { "feature": "from", "weight": 0.0403 },
-      { "feature": "electronics", "weight": -0.0281 }
-    ]
+    "features": [{ "weight": 0.0034, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "quality": {
+    "features": [{ "weight": 0.008, "feature": "perfect" }],
+    "sentiment": "positive"
   },
   "shipping": {
-    "sentiment": "negative",
-    "features": [
-      { "feature": "not", "weight": 0.415 },
-      { "feature": "defected", "weight": 0.2611 },
-      { "feature": "I", "weight": 0.1314 },
-      { "feature": "electronics", "weight": 0.1239 },
-      { "feature": "recommend", "weight": -0.0946 },
-      { "feature": "would", "weight": -0.0214 }
-    ]
-  },
-  "customer_service": {
-    "sentiment": "negative",
-    "features": [
-      { "feature": "not", "weight": 0.4105 },
-      { "feature": "any", "weight": 0.2725 },
-      { "feature": "defected", "weight": 0.2194 },
-      { "feature": "from", "weight": -0.1051 },
-      { "feature": "would", "weight": 0.1039 },
-      { "feature": "I", "weight": -0.0977 }
-    ]
+    "features": [{ "weight": 0.0159, "feature": "perfect" }],
+    "sentiment": "positive"
   },
   "warranty": {
-    "sentiment": "negative",
-    "features": [
-      { "feature": "not", "weight": 0.4577 },
-      { "feature": "buying", "weight": 0.2123 },
-      { "feature": "I", "weight": 0.1208 },
-      { "feature": "defected", "weight": 0.095 },
-      { "feature": "my", "weight": -0.0885 },
-      { "feature": "phone", "weight": 0.0648 }
-    ]
+    "features": [{ "weight": 0.0064, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "customer_service": {
+    "features": [{ "weight": 0.0159, "feature": "perfect" }],
+    "sentiment": "positive"
   }
 }
