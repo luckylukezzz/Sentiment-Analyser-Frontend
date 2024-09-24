@@ -268,7 +268,7 @@ import { useStateContext } from "../../contexts/ContextProvider";
 const LIMEExplanationGraph = () => {
   const { currentMode } = useStateContext();
   const [selectedReview, setSelectedReview] = useState("review1");
-  const [selectedAspect, setSelectedAspect] = useState("camera");
+  const [selectedAspect, setSelectedAspect] = useState("quality");
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -283,93 +283,130 @@ const LIMEExplanationGraph = () => {
   const reviews = {
     review1: {
       text: "This phone has an amazing camera. The quality is outstanding, but the price is too high.",
-      aspects: ["camera", "quality", "price", "overall"],
+      aspects: [ "quality", "price", "shipping","customer_service","warranty"],
     },
     review2: {
       text: "Fast shipping, average battery life. The screen is just okay.",
-      aspects: ["shipping", "battery", "screen", "overall"],
+      aspects: [ "quality", "price", "shipping","customer_service","warranty"],
     },
   };
 
   const explanations = {
     review1: {
-      camera: {
-        sentiment: "positive",
-        features: [
-          { feature: "amazing", weight: 0.35 },
-          { feature: "phone", weight: 0.1 },
-          { feature: "camera", weight: 0.3 },
-          { feature: "this", weight: -0.05 },
-          { feature: "has", weight: 0.02 },
-        ],
+      "quality": {
+        "sentiment": "negative",
+        "features": [
+          { "feature": "not", "weight": 0.3563 },
+          { "feature": "defected", "weight": 0.1763 },
+          { "feature": "buying", "weight": 0.1256 },
+          { "feature": "electronics", "weight": 0.1035 },
+          { "feature": "came", "weight": 0.1026 },
+          { "feature": "phone", "weight": 0.0761 }
+        ]
       },
-      quality: {
-        sentiment: "positive",
-        features: [
-          { feature: "quality", weight: 0.4 },
-          { feature: "outstanding", weight: 0.35 },
-          { feature: "is", weight: -0.05 },
-          { feature: "the", weight: -0.02 },
-        ],
+      "price": {
+        "sentiment": "negative",
+        "features": [
+          { "feature": "not", "weight": 0.6901 },
+          { "feature": "buying", "weight": 0.134 },
+          { "feature": "this", "weight": 0.0991 },
+          { "feature": "phone", "weight": -0.0597 },
+          { "feature": "from", "weight": 0.0403 },
+          { "feature": "electronics", "weight": -0.0281 }
+        ]
       },
-      price: {
-        sentiment: "negative",
-        features: [
-          { feature: "price", weight: -0.2 },
-          { feature: "high", weight: -0.3 },
-          { feature: "too", weight: -0.25 },
-          { feature: "is", weight: -0.05 },
-        ],
+      "shipping": {
+        "sentiment": "negative",
+        "features": [
+          { "feature": "not", "weight": 0.415 },
+          { "feature": "defected", "weight": 0.2611 },
+          { "feature": "I", "weight": 0.1314 },
+          { "feature": "electronics", "weight": 0.1239 },
+          { "feature": "recommend", "weight": -0.0946 },
+          { "feature": "would", "weight": -0.0214 }
+        ]
       },
-      overall: {
-        sentiment: "neutral",
-        features: [
-          { feature: "amazing", weight: 0.3 },
-          { feature: "camera", weight: 0.25 },
-          { feature: "quality", weight: 0.2 },
-          { feature: "outstanding", weight: 0.15 },
-          { feature: "price", weight: -0.2 },
-          { feature: "high", weight: -0.15 },
-        ],
+      "customer_service": {
+        "sentiment": "negative",
+        "features": [
+          { "feature": "not", "weight": 0.4105 },
+          { "feature": "any", "weight": 0.2725 },
+          { "feature": "defected", "weight": 0.2194 },
+          { "feature": "from", "weight": -0.1051 },
+          { "feature": "would", "weight": 0.1039 },
+          { "feature": "I", "weight": -0.0977 }
+        ]
       },
-    },
-    review2: {
-      shipping: {
-        sentiment: "positive",
-        features: [
-          { feature: "fast", weight: 0.45 },
-          { feature: "shipping", weight: 0.4 },
-        ],
+      "warranty": {
+        "sentiment": "negative",
+        "features": [
+          { "feature": "not", "weight": 0.4577 },
+          { "feature": "buying", "weight": 0.2123 },
+          { "feature": "I", "weight": 0.1208 },
+          { "feature": "defected", "weight": 0.095 },
+          { "feature": "my", "weight": -0.0885 },
+          { "feature": "phone", "weight": 0.0648 }
+        ]
+      }
       },
-      battery: {
-        sentiment: "neutral",
-        features: [
-          { feature: "average", weight: 0.05 },
-          { feature: "life", weight: 0.02 },
-          { feature: "battery", weight: 0.01 },
-        ],
-      },
-      screen: {
-        sentiment: "neutral",
-        features: [
-          { feature: "okay", weight: 0.1 },
-          { feature: "just", weight: -0.05 },
-          { feature: "screen", weight: 0.02 },
-          { feature: "is", weight: 0.01 },
-        ],
-      },
-      overall: {
-        sentiment: "neutral",
-        features: [
-          { feature: "fast", weight: 0.25 },
-          { feature: "shipping", weight: 0.2 },
-          { feature: "average", weight: 0.05 },
-          { feature: "battery", weight: 0.02 },
-          { feature: "okay", weight: 0.1 },
-          { feature: "screen", weight: 0.02 },
-        ],
-      },
-    },
+    
+      review2: {
+        "quality": {
+          "sentiment": "negative",
+          "features": [
+            { "feature": "not", "weight": 0.3563 },
+            { "feature": "defected", "weight": 0.1763 },
+            { "feature": "buying", "weight": 0.1256 },
+            { "feature": "electronics", "weight": 0.1035 },
+            { "feature": "came", "weight": 0.1026 },
+            { "feature": "phone", "weight": 0.0761 }
+          ]
+        },
+        "price": {
+          "sentiment": "negative",
+          "features": [
+            { "feature": "not", "weight": 0.6901 },
+            { "feature": "buying", "weight": 0.134 },
+            { "feature": "this", "weight": 0.0991 },
+            { "feature": "phone", "weight": -0.0597 },
+            { "feature": "from", "weight": 0.0403 },
+            { "feature": "electronics", "weight": -0.0281 }
+          ]
+        },
+        "shipping": {
+          "sentiment": "negative",
+          "features": [
+            { "feature": "not", "weight": 0.415 },
+            { "feature": "defected", "weight": 0.2611 },
+            { "feature": "I", "weight": 0.1314 },
+            { "feature": "electronics", "weight": 0.1239 },
+            { "feature": "recommend", "weight": -0.0946 },
+            { "feature": "would", "weight": -0.0214 }
+          ]
+        },
+        "customer_service": {
+          "sentiment": "negative",
+          "features": [
+            { "feature": "not", "weight": 0.4105 },
+            { "feature": "any", "weight": 0.2725 },
+            { "feature": "defected", "weight": 0.2194 },
+            { "feature": "from", "weight": -0.1051 },
+            { "feature": "would", "weight": 0.1039 },
+            { "feature": "I", "weight": -0.0977 }
+          ]
+        },
+        "warranty": {
+          "sentiment": "negative",
+          "features": [
+            { "feature": "not", "weight": 0.4577 },
+            { "feature": "buying", "weight": 0.2123 },
+            { "feature": "I", "weight": 0.1208 },
+            { "feature": "defected", "weight": 0.095 },
+            { "feature": "my", "weight": -0.0885 },
+            { "feature": "phone", "weight": 0.0648 }
+          ]
+        }
+        },
   };
 
   const data = explanations[selectedReview][selectedAspect].features.sort(
