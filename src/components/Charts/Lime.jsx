@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   BarChart,
   Bar,
@@ -13,10 +14,15 @@ import {
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const LIMEExplanationGraph = () => {
-  const { currentMode } = useStateContext();
-  const [selectedReview, setSelectedReview] = useState("review1");
+  const { currentMode, selectedProduct } = useStateContext();
+  const [selectedReview, setSelectedReview] = useState("");
   const [selectedAspect, setSelectedAspect] = useState("quality");
   const [isMobile, setIsMobile] = useState(false);
+  const [explanations, setExplanations] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const aspects = ["quality", "price", "shipping", "customer_service", "warranty"];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -27,57 +33,37 @@ const LIMEExplanationGraph = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const aspects = [ "quality", "price", "shipping","customer_service","warranty"];
-  const explanations = {
-    "review1": {
-        "text": "perfect",
-        "price": {
-            "features": [
-                {
-                    "weight": 0.0034,
-                    "feature": "perfect"
-                }
-            ],
-            "sentiment": "positive"
-        },
-        "quality": {
-            "features": [
-                {
-                    "weight": 0.008,
-                    "feature": "perfect"
-                }
-            ],
-            "sentiment": "positive"
-        },
-        "shipping": {
-            "features": [
-                {
-                    "weight": 0.0159,
-                    "feature": "perfect"
-                }
-            ],
-            "sentiment": "positive"
-        },
-        "warranty": {
-            "features": [
-                {
-                    "weight": 0.0064,
-                    "feature": "perfect"
-                }
-            ],
-            "sentiment": "positive"
-        },
-        "customer_service": {
-            "features": [
-                {
-                    "weight": 0.0159,
-                    "feature": "perfect"
-                }
-            ],
-            "sentiment": "positive"
+  useEffect(() => {
+    const fetchData = async () => {
+      if (selectedProduct) {
+        setLoading(true);
+        setError(null);
+        try {
+          const response = await axios.get(`http://localhost:5000/api/v1/dashboard/lime-info?asin=${selectedProduct}`);
+          setExplanations(response.data);
+          setSelectedReview(Object.keys(response.data)[0] || "");
+        } catch (err) {
+          setError("Failed to fetch LIME explanations. Please try again later.");
+        } finally {
+          setLoading(false);
         }
-    },
-}
+      }
+    };
+
+    fetchData();
+  }, [selectedProduct]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!selectedReview) {
+    return <div>No reviews available for this product.</div>;
+  }
 
   const data = explanations[selectedReview][selectedAspect].features.sort(
     (a, b) => Math.abs(b.weight) - Math.abs(a.weight)
