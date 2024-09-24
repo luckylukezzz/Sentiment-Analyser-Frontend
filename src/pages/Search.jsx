@@ -21,14 +21,11 @@ function Search() {
       if (term.length === 0) {
         // Fetch initial 10 products if search term is empty
         axios
-          .get(
-            `${backendApiUrl}/dashboard/search`,
-            {
-              headers: {
-                "ngrok-skip-browser-warning": "true",
-              },
-            }
-          )
+          .get(`${backendApiUrl}/dashboard/search`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          })
           .then((response) => {
             console.log("Response data:", response);
             setProducts(response.data);
@@ -39,14 +36,11 @@ function Search() {
       } else {
         // Fetch products based on search term
         axios
-          .get(
-            `${backendApiUrl}/dashboard/search?term=${term}`,
-            {
-              headers: {
-                "ngrok-skip-browser-warning": "true",
-              },
-            }
-          )
+          .get(`${backendApiUrl}/dashboard/search?term=${term}`, {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          })
           .then((response) => setProducts(response.data))
           .catch((error) => console.error("Error fetching data:", error));
       }
@@ -60,6 +54,9 @@ function Search() {
 
   return (
     <div>
+      <p className="dark:text-white text-white text-xl font-semibold w-full text-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 rounded-lg shadow-lg">
+        Select a product to get analytics
+      </p>
       <div className="flex justify-center mt-8">
         <div className="relative w-[584px] max-w-full">
           <input
