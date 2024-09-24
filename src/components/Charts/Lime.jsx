@@ -21,7 +21,7 @@ const LIMEExplanationGraph = () => {
   const [explanations, setExplanations] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const backendApiUrl = process.env.REACT_APP_BACKEND_API;
   const aspects = ["quality", "price", "shipping", "customer_service", "warranty"];
 
   useEffect(() => {
@@ -39,7 +39,10 @@ const LIMEExplanationGraph = () => {
         setLoading(true);
         setError(null);
         try {
-          const response = await axios.get(`http://localhost:5000/api/v1/dashboard/lime-info?asin=${selectedProduct}`);
+          const headers = {
+            'ngrok-skip-browser-warning': 'true'
+          };
+          const response = await axios.get(`${backendApiUrl}/dashboard/lime-info?asin=${selectedProduct}`,{ headers });
           setExplanations(response.data);
           setSelectedReview(Object.keys(response.data)[0] || "");
         } catch (err) {
