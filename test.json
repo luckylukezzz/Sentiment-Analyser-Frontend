@@ -1,0 +1,23 @@
+{
+  "text": "perfect",
+  "price": {
+    "features": [{ "weight": 0.0034, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "quality": {
+    "features": [{ "weight": 0.008, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "shipping": {
+    "features": [{ "weight": 0.0159, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "warranty": {
+    "features": [{ "weight": 0.0064, "feature": "perfect" }],
+    "sentiment": "positive"
+  },
+  "customer_service": {
+    "features": [{ "weight": 0.0159, "feature": "perfect" }],
+    "sentiment": "positive"
+  }
+}

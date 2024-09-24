@@ -58,7 +58,7 @@ const Aspects = () => {
           <Button
             color="white"
             bgColor={currentColor}
-            text="How these generated?"
+            text="How aspects are calculated?"
             borderRadius="10px"
           />
         </div>
