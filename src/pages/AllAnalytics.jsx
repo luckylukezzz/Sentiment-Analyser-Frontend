@@ -59,12 +59,10 @@ const AllAnalytics = () => {
         `${backendApiUrl}/dashboard/top-block?asin=${asin}`,
       ];
 
-  
       const headers = {
         "ngrok-skip-browser-warning": "true",
       };
 
-      
       const [
         sentimentResponse,
         emotionResponse,
@@ -73,7 +71,6 @@ const AllAnalytics = () => {
         topBlockResponse,
       ] = await Promise.all(urls.map((url) => axios.get(url, { headers })));
 
-   
       setSentimentChartData(sentimentResponse.data);
       setEmotionChartData(emotionResponse.data);
       setPositiveData(positiveResponse.data);
@@ -113,14 +110,20 @@ const AllAnalytics = () => {
       pcColor: "green-600",
     },
   ];
+
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 ">
-          <div className="flex justify-between items-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 overflow-hidden ">
+          <div className="flex justify-between items-center overflow-hidden">
             <div>
               <p className="font-bold text-gray-400">product</p>
-              <p className="text-2xl">{topBlockData?.name}</p>
+              <p className="text-2xl">
+                {(() => {
+                  const name = topBlockData?.name || "";
+                  return name.length > 15 ? name.slice(0, 15) + "..." : name;
+                })()}
+              </p>
               <p className="font-bold text-gray-400">asin</p>
               <p className="text-2xl">{topBlockData?.asin}</p>
             </div>
