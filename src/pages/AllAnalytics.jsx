@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BsCurrencyDollar } from "react-icons/bs";
+//import { BsCurrencyDollar } from "react-icons/bs";
 // import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
-import { positiveTerms, negativeTerms, aspectList } from "../data/dummy";
-import { Button, LineChart, ImprovementTips, Aspects } from "../components";
-import { pieChartData, pieChartDataEmotion } from "../data/dummy";
+import { LineChart, ImprovementTips, Aspects } from "../components";
+//import { pieChartData, pieChartDataEmotion } from "../data/dummy";
 import { Pie as PieChart, ChartsHeader } from "../components";
 import { dropdownData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -31,8 +30,8 @@ const DropDown = ({ currentMode }) => (
 
 const AllAnalytics = () => {
   const { currentColor, currentMode, selectedProduct } = useStateContext();
-  const [sentimentChartData, setSentimentChartData] = useState(pieChartData);
-  const [emotionChartData, setEmotionChartData] = useState(pieChartDataEmotion);
+  const [sentimentChartData, setSentimentChartData] = useState([]);
+  const [emotionChartData, setEmotionChartData] = useState([]);
   const [positiveData, setPositiveData] = useState([]);
   const [negativeData, setNegativeData] = useState([]);
   const [topBlockData, setTopBlockData] = useState([]);
