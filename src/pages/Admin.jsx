@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Input, Button, Card, CardContent, Typography, CircularProgress } from '@mui/material';
 
 const ASINSearchComponent = () => {
   const [asin, setAsin] = useState('');
@@ -36,42 +35,31 @@ const ASINSearchComponent = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 600, margin: 'auto', mt: 4 }}>
-      <CardContent>
-        <Typography variant="h5" component="div" gutterBottom>
-          ASIN Search and Process
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            value={asin}
-            onChange={(e) => setAsin(e.target.value)}
-            placeholder="Enter ASIN"
-            fullWidth
-            sx={{ mb: 2 }}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            disabled={loading || !asin}
-            fullWidth
-          >
-            {loading ? <CircularProgress size={24} /> : 'Process ASIN'}
-          </Button>
-        </form>
-        {error && (
-          <Typography color="error" sx={{ mt: 2 }}>
-            Error: {error}
-          </Typography>
-        )}
-        {result && (
-          <Typography sx={{ mt: 2 }}>
-            Result: {result}
-          </Typography>
-        )}
-      </CardContent>
-    </Card>
+    <div style={{ maxWidth: '400px', margin: '20px auto', padding: '20px', border: '1px solid #ccc' }}>
+      <h2>ASIN Search and Process</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={asin}
+          onChange={(e) => setAsin(e.target.value)}
+          placeholder="Enter ASIN"
+          style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+        />
+        <button
+          type="submit"
+          disabled={loading || !asin}
+          style={{ width: '100%', padding: '8px', backgroundColor: '#007bff', color: 'white', border: 'none' }}
+        >
+          {loading ? 'Processing...' : 'Process ASIN'}
+        </button>
+      </form>
+      {error && (
+        <p style={{ color: 'red', marginTop: '10px' }}>Error: {error}</p>
+      )}
+      {result && (
+        <p style={{ marginTop: '10px' }}>Result: {result}</p>
+      )}
+    </div>
   );
 };
 
