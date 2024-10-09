@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useStateContext } from '../contexts/ContextProvider';
-
+import { ReactComponent as RegisterImg } from '../assets/RegisterImg.svg';
 
 
 const Login = () => {
@@ -60,14 +60,14 @@ const Login = () => {
   useEffect(() => {
     if(token !== ""){
       toast.success("You already logged in");
-      navigate("/dashboard");
+      navigate("/dashboard/search");
     }
   }, []);
 
   return (
     <div className="register-main">
       <div className="register-left">
-        <img src={Image} alt="" />
+        <RegisterImg/>
       </div>
       <div className="register-right">
         <div className="register-right-container">

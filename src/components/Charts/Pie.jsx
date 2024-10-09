@@ -1,5 +1,14 @@
 import React from 'react';
-import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
+import {
+  AccumulationChartComponent,
+  AccumulationSeriesCollectionDirective,
+  AccumulationSeriesDirective,
+  AccumulationLegend,
+  PieSeries,
+  AccumulationDataLabel,
+  Inject,
+  AccumulationTooltip,
+} from '@syncfusion/ej2-react-charts';
 
 import { useStateContext } from '../../contexts/ContextProvider';
 
@@ -9,7 +18,11 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisiblity, background: 'white' }}
+      legendSettings={{
+        visible: legendVisiblity,
+        background: currentMode === "Dark" ? "#33373E" : "#fff",
+        textStyle: { color: currentMode === "Dark" ? "#fff" : "#000" },
+      }}
       height={height}
       background={currentMode === 'Dark' ? '#33373E' : '#fff'}
       tooltip={{ enable: true }}
@@ -17,7 +30,7 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
       <Inject services={[AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]} />
       <AccumulationSeriesCollectionDirective>
         <AccumulationSeriesDirective
-          name="Sale"
+          name="Sentiment"
           dataSource={data}
           xName="x"
           yName="y"
@@ -28,6 +41,7 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           explode
           explodeOffset="10%"
           explodeIndex={2}
+          pointColorMapping="color"  // Map the color field
           dataLabel={{
             visible: true,
             name: 'text',

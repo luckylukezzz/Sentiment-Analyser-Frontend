@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       colors: {
         'light-gray': '#f9f9f9',
+        'custom-pink': '#f27399',
+        'custom-green': '#3b7d1a',
+        'custom-red': '#881337',
       },
       fontSize: {
         14: '14px',
@@ -37,6 +40,7 @@ module.exports = {
       },
       height: {
         80: '80px',
+        
       },
       minHeight: {
         590: '590px',
