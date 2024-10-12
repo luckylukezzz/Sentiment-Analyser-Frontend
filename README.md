@@ -37,6 +37,8 @@ ___
 - **Machine Learning**: BERT, Hugging Face Transformers
 - **Web Scraping**: Beautiful Soup
 
+---
+
 ### Getting Started on Frontend
 
 - As a prerequisites you should have a `React` compatible environment
