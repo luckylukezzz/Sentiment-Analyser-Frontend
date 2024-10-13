@@ -43,7 +43,8 @@ This repository implements Aspect-Based Sentiment Analysis (ABSA) on user review
 ---
 
 ### Getting Started on Frontend
-( See deployed [Frontend](https://analytica-ten.vercel.app/)
+
+- ( See deployed [Frontend](https://analytica-ten.vercel.app/))
 
 - As a prerequisites you should have a `React` compatible environment
 
