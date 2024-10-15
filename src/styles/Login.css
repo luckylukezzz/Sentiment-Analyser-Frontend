@@ -208,3 +208,17 @@
     align-items: center;
     gap: 5px;
   }
+
+  .login-error-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+  }
+
+  .error-message{
+    color: red;
+    font-size: 15px !important;
+    margin-top: 2px;
+    text-align: left;
+  }
