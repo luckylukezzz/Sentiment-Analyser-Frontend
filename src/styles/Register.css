@@ -190,3 +190,16 @@
     text-decoration: underline;
   }
   
+  .back-to-home a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .register-logo{
+    align-self: center;
+    padding-top: 50px;
+  }

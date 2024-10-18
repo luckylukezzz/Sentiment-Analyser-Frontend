@@ -192,12 +192,10 @@ const Login = () => {
       </div>
       <div className="register-right">
         <div className="register-right-container">
-          {/* <div className="register-logo">
-            <img src={Logo} alt="" />
-          </div> */}
+        <div className="register-logo">
+            <img src={Logo} alt="Logo"  />
+          </div>
           <div className="register-center">
-            <br/>
-            <br/>
             <h2>Welcome to Analytica!</h2>
             <p>Please enter your details</p>
             <form onSubmit={handleRegisterSubmit}>
@@ -275,7 +273,7 @@ const Login = () => {
           <p className="login-bottom-p">
             Already have an account? <Link to="/login">Login</Link>
           </p>
-          <p className="login-bottom-p">
+          <p className="back-to-home">
             <Link to="/" style={{color: currentColor}}>{'\u2190'}Back to Home</Link>
           </p>
         </div>
