@@ -9,7 +9,7 @@ const Footer = () => {
                 <div>
                     <img src="/images/footer-logo.png" className='w-[200px]' alt="Your Company Logo" />
                     <p className='text-[#ffffff75] leading-8 py-6'>
-                        Enhance Amazon products with sentiment analysis! Leverage customer feedback to drive improvements and elevate user experience.
+                        Enhance Amazon products with sentiment analysis! <br/>Leverage customer feedback to drive improvements and elevate user experience.
                     </p>
                     <h2 className='text-2xl pb-2'>feedback@luckylukezzz.com</h2>
                     <h2 className='text-2xl'>+1-800-123-4567</h2>
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
             <div className='border-t border-[#221F35] flex justify-center items-center py-12'>
                 <div className="flex justify-center items-center">
-                    <h2>Copyright © {new Date().getFullYear()} Luckyluke. All rights reserved.</h2>
+                    <h2><i>Copyright © {new Date().getFullYear()} Analytica. All rights reserved.</i></h2>
                 </div>
             </div>
         </div>
