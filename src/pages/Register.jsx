@@ -275,6 +275,9 @@ const Login = () => {
           <p className="login-bottom-p">
             Already have an account? <Link to="/login">Login</Link>
           </p>
+          <p className="login-bottom-p">
+            <Link to="/" style={{color: currentColor}}>{'\u2190'}Back to Home</Link>
+          </p>
         </div>
       </div>
     </div>
