@@ -16,10 +16,10 @@ const Menu = () => {
             text: "About",
             url: "/",
         }, {
-            text: "Pricing",
+            text: "Services",
             url: "/",
         }, {
-            text: "Blog",
+            text: "Pricing",
             url: "/",
         },
     ]

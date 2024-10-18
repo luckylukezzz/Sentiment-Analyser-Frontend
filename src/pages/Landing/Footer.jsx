@@ -11,8 +11,6 @@ const Footer = () => {
                     <p className='text-[#ffffff75] leading-8 py-6'>
                         Enhance Amazon products with sentiment analysis! <br/>Leverage customer feedback to drive improvements and elevate user experience.
                     </p>
-                    <h2 className='text-2xl pb-2'>feedback@luckylukezzz.com</h2>
-                    <h2 className='text-2xl'>+1-800-123-4567</h2>
                 </div>
                 <div>
                     <h2 className='font-bold text-xl'>Explore</h2>
@@ -35,9 +33,8 @@ const Footer = () => {
                 <div>
                     <h2 className='font-bold text-xl'>Connect</h2>
                     <ul className='text-[#ffffff75] leading-10 mt-4'>
-                        <li>Community</li>
-                        <li>Partnerships</li>
-                        <li>Events</li>
+                    <li>feedback@analytica.com</li> 
+                    <li>+1-800-123-4567</li>
                     </ul>
                 </div>
             </div>
