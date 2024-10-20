@@ -28,6 +28,10 @@ const Menu = () => {
         setMobileMenuToggle(!mobileMenuToggle)
     }
 
+    const handleLinkClick = () => {
+        setMobileMenuToggle(false);
+    };
+
 
     return (
         <div>
@@ -36,10 +40,13 @@ const Menu = () => {
                     {
                         menuContent.map((item, index) => {
                             return (
-                                <NavLink to="" key={index}><li className='flex items-center py-4 duration-200 text-white'>{item.text}</li></NavLink>
+                                <NavLink to={item.url} key={index} onClick={handleLinkClick}><li className='flex items-center py-4 duration-200 text-white'>{item.text}</li></NavLink>
                             )
                         })
                     }
+                    <Button
+                    className=" text-white px-12 py-3 rounded-xl text-2xl"
+                    title="Login/Signup" />
                 </ul>
             </div>
             <nav className='hidden md:flex'>
@@ -56,9 +63,6 @@ const Menu = () => {
                     <Button
                     className=" text-white px-12 py-3 rounded-xl text-2xl"
                     title="Login/Signup" />
-                    {/* <Button
-                        className="uppercase font-source-sans bg-[#1F1F39] text-white px-9 py-2 rounded-xl text-lg"
-                        title="Get In Touch" /> */}
                 </ul>
             </nav>
             <div className='md:hidden flex fixed top-12 right-6 cursor-pointer z-50'>
