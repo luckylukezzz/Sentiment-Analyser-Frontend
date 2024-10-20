@@ -96,9 +96,13 @@ const Login = () => {
         toast.success("Registration successful");
         navigate("/login");
       } catch (err) {
-        console.log(err);
         if (err.response && err.response.status === 400) {
-          toast.error("Registration failed: " + err.response.data.message);
+          const errorMessage = err.response.data.msg; // Get the specific error message from backend
+          if (errorMessage.includes("Email already in use")) {
+            setEmailError(errorMessage); // Display "Email already in use" message
+          } else {
+            toast.error("Registration failed: " + errorMessage); // Display any other error messages
+          }
         } else {
           toast.error("Registration failed");
         }
