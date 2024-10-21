@@ -188,3 +188,37 @@
     text-decoration: underline;
   }
   
+  .back-to-home{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .back-to-home a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .login-error-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+  }
+
+  .error-message{
+    color: red;
+    font-size: 15px !important;
+    margin-top: 2px;
+    text-align: left;
+  }

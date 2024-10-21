@@ -20,7 +20,7 @@ const TabServices = () => {
             imgSrc: "/images/portfolio3.png",
             open: false,
         }, {
-            title: "Product Recommendations",
+            title: "Improvement Suggestions",
             desc: "Receive actionable recommendations to improve your products based on customer feedback. Enhance your offerings and boost customer satisfaction.",
             imgSrc: "/images/portfolio4.png",
             open: false,
