@@ -13,7 +13,7 @@ const ASINSearchComponent = () => {
     setResult(null);
 
     try {
-      const response = await fetch('/api/process-reviews', {
+      const response = await fetch('/process-reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
