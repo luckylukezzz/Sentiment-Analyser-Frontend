@@ -15,6 +15,7 @@ import {
   Search,
   Improvement,
   AspectPage,
+  AsinAnalytics
 } from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
@@ -93,6 +94,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/logout" element={<Logout />} />
+              <Route path="/dashboard/admin" element={<AsinAnalytics />} />
               <Route path="/" element={<Landing />} />
               {/* dashboard */}
               <Route
