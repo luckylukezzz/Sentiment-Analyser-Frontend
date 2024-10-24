@@ -113,7 +113,7 @@ const AsinAnalytics = () => {
         {success && (
           <div className="p-4 rounded-md bg-green-50 border border-green-200">
             <p className="text-sm text-green-600">
-              Request successful! the Product info will be analysed soon.
+              Request sent! the Product info will be analysed soon.
               please check back later.
             </p>
           </div>
