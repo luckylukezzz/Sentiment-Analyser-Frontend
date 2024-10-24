@@ -50,6 +50,7 @@ function Search() {
 
   useEffect(() => {
     fetchProducts(searchTerm);
+    console.log("test")
   }, [searchTerm, fetchProducts]);
 
   return (
