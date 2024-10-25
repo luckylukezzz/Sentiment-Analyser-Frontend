@@ -27,7 +27,7 @@ const AsinAnalytics = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:5000/run_task", {
+      const response = await fetch("http://localhost:8080/run_task", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
