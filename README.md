@@ -63,7 +63,7 @@ To get started with the Frontend, follow these steps :
 
 ### Contributing
 
-We welcome contributions to enhance the functionality and efficiency of our system!.
+We welcome contributions to enhance the functionality and efficiency of our system.
 
 ### About
 
