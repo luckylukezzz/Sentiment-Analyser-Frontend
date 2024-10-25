@@ -8,7 +8,7 @@ This repository implements Aspect-Based Sentiment Analysis (ABSA) on user review
 
 1. **Product Portfolio Management**
    - Add, manage, and track multiple products for review analysis.
-   - Organize products efficiently for comparative insights.
+   - Organize products efficiently for comparative insightsa.
 
 2. **Web Scraper**
    - Automatically collect customer reviews from various e-commerce platforms.
