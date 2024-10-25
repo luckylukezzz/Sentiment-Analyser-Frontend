@@ -12,7 +12,7 @@ This repository implements Aspect-Based Sentiment Analysis (ABSA) on user review
 
 2. **Web Scraper**
    - Automatically collect customer reviews from various e-commerce platforms.
-   - Configure scraping parameters for specific data sourcesa.
+   - Configure scraping parameters for specific data sources.
 
 3. **Sentiment Analysis**
    - Utilizes a fine-tuned BERT model for token classification in ABSA tasks.
